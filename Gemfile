@@ -23,6 +23,9 @@ gem 'redis', '~> 4.0'
 # gem 'bcrypt', '~> 3.1.7'
 # Acts_as_votable to upvote and downvote places
 gem 'acts_as_votable'
+# Adding cloudinary
+gem 'cloudinary', '~> 1.16.0'
+
 
 
 # Use Active Storage variant
