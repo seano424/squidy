@@ -25,7 +25,8 @@ gem 'redis', '~> 4.0'
 gem 'acts_as_votable'
 # Adding cloudinary
 gem 'cloudinary', '~> 1.16.0'
-
+# geocoder
+gem 'geocoder'
 
 
 # Use Active Storage variant
