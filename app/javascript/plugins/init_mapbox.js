@@ -6,7 +6,8 @@ const buildMap = (mapElement) => {
   return new mapboxgl.Map({
     container: "map",
     style: "mapbox://styles/seanpatrick89/ckj0d22lr0qno19o1c5xghwpo",
-    zoom: 9, // starting zoom
+    center: [-87.070429, 20.629785],
+    zoom: 7, // starting zoom
   });
 };
 
