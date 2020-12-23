@@ -11,6 +11,26 @@ const buildMap = (mapElement) => {
   });
 };
 
+const flyToStore = (currentFeature) => {
+  map.flyTo({
+    center: currentFeature.geometry.coordinates,
+    zoom: 15
+  });
+}
+
+function createPopUp(currentFeature) {
+  let popUps = document.getElementsByClassName('mapboxgl-popup');
+  /** Check if there is already a popup on the map and if so, remove it */
+  if (popUps[0]) popUps[0].remove();
+
+  let popup = new mapboxgl.Popup({ closeOnClick: false })
+    .setLngLat(currentFeature.geometry.coordinates)
+    .setHTML(`<h3>${currentFeature.properties.name}</h3>` +
+      '<h4>' + currentFeature.properties.address + '</h4>')
+    .addTo(map);
+}
+
+
 const addMarkersToMap = (map, markers) => {
   markers.forEach((marker) => {
     const popup = new mapboxgl.Popup().setHTML(marker.infoWindow);
@@ -21,11 +41,21 @@ const addMarkersToMap = (map, markers) => {
     element.style.backgroundSize = "contain";
     element.style.width = "45px";
     element.style.height = "45px";
+    element.id = `marker-${marker.id}`
 
     new mapboxgl.Marker(element)
       .setLngLat([marker.lng, marker.lat])
       .setPopup(popup)
-      .addTo(map);
+      .addTo(map); 
+
+    let link = document.getElementById(`link-${marker.id}`)
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      new mapboxgl.Marker(element)
+      .setLngLat([marker.lng, marker.lat])
+      .setPopup(popup)
+      .addTo(map); 
+    })
   });
 };
 
