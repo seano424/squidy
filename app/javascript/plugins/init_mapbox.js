@@ -6,14 +6,14 @@ const buildMap = (mapElement) => {
   return new mapboxgl.Map({
     container: "map",
     style: "mapbox://styles/seanpatrick89/ckj0d22lr0qno19o1c5xghwpo",
-    zoom: 9, // starting zoom
+    center: [-87.070429, 20.629785],
+    zoom: 7, // starting zoom
   });
 };
 
 const addMarkersToMap = (map, markers) => {
   markers.forEach((marker) => {
     const popup = new mapboxgl.Popup().setHTML(marker.infoWindow);
-    console.log(marker)
 
     const element = document.createElement("div");
     element.className = "marker";
@@ -64,10 +64,9 @@ const initMapbox = () => {
           <input type="hidden" id="place_city" name="place[city]" value="${city}">
           <input type="hidden" id="place_latitude" name="place[latitude]" value=${e.result.center[1]}>
           <input type="hidden" id="place_longitude" name="place[longitude]" value=${e.result.center[0]}>
-          <button type="submit">Add to list</button>
+          <button type="submit" class="btn btn-primary">Add to list</button>
         </form>`
       const popupSearch = new mapboxgl.Popup().setHTML(info)
-      // 
       new mapboxgl.Marker(e)
       .setLngLat(e.result.center)
       .setPopup(popupSearch)
