@@ -7,7 +7,7 @@ const buildMap = (mapElement) => {
     container: "map",
     style: "mapbox://styles/seanpatrick89/ckj0d22lr0qno19o1c5xghwpo",
     center: [-87.070429, 20.629785],
-    zoom: 7, // starting zoom
+    zoom: 6, // starting zoom
   });
 };
 
@@ -46,7 +46,7 @@ const addMarkersToMap = (map, markers) => {
 const fitMapToMarkers = (map, markers) => {
   const bounds = new mapboxgl.LngLatBounds();
   markers.forEach((marker) => bounds.extend([marker.lng, marker.lat]));
-  map.fitBounds(bounds, { padding: 70, maxZoom: 15 });
+  map.fitBounds(bounds, { padding: 70, maxZoom: 13 });
 };
 
 const initMapbox = () => {
