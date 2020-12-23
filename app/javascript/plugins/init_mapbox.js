@@ -31,10 +31,10 @@ const addMarkersToMap = (map, markers) => {
     let link = document.getElementById(`link-${marker.id}`);
     link.addEventListener("click", (e) => {
       e.preventDefault();
-      console.log(marker);
-      var popUps = document.getElementsByClassName("mapboxgl-popup");
       /** Check if there is already a popup on the map and if so, remove it */
+      let popUps = document.getElementsByClassName("mapboxgl-popup");
       if (popUps[0]) popUps[0].remove();
+
       new mapboxgl.Popup({ closeOnClick: true })
         .setLngLat([marker.lng, marker.lat])
         .setHTML(marker.infoWindow)
