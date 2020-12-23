@@ -33,14 +33,14 @@ class PlacesController < ApplicationController
   def upvote
     @place = Place.find(params[:id])
     @place.liked_by current_user
-    redirect_to places_path
+    redirect_to places_path(anchor: "link-#{@place.id}")
   end
 
 
   def downvote
     @place = Place.find(params[:id])
     @place.disliked_by current_user
-    redirect_to places_path
+    redirect_to places_path(anchor: "link-#{@place.id}")
   end
 
 
