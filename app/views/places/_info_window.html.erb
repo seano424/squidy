@@ -1,2 +1,8 @@
 <h2><%= place.name %></h2>
 <p><%= place.address %></p>
+
+<% if Place.find(place.id)  %>
+  <%= link_to 'More info', place_path(place) %>
+<% else %>
+  <%= link_to 'Add to list', new_place_path(place) %>
+<% end %>
