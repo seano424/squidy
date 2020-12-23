@@ -59,9 +59,6 @@ const addMarkersToMap = (map, markers) => {
   });
 };
 
-
-
-
 const fitMapToMarkers = (map, markers) => {
   const bounds = new mapboxgl.LngLatBounds();
   markers.forEach((marker) => bounds.extend([marker.lng, marker.lat]));
@@ -77,12 +74,34 @@ const initMapbox = () => {
     addMarkersToMap(map, markers);
     fitMapToMarkers(map, markers);
 
-    map.addControl(
-      new MapboxGeocoder({
-        accessToken: mapboxgl.accessToken,
-        mapboxgl: mapboxgl,
-      })
-    );
+    const geocoder = new MapboxGeocoder({
+      accessToken: mapboxgl.accessToken,
+      mapboxgl: mapboxgl      
+    })
+
+    map.addControl(geocoder);
+
+    geocoder.on('result', function(e) {
+      const name = e.result.place_name.split(",")[0]
+      const address = e.result.place_name.split(",")[1] + ", " + e.result.place_name.split(",")[2]
+      const city = e.result.place_name.split(",")[2]
+      const info = 
+        `<h2>${name}</h2>
+        <p>${address}</p>
+        <form action="/places" method="POST">
+          <input type="hidden" id="place_name" name="place[name]" value="${name}">
+          <input type="hidden" id="place_address" name="place[address]" value="${address}">
+          <input type="hidden" id="place_city" name="place[city]" value="${city}">
+          <input type="hidden" id="place_latitude" name="place[latitude]" value=${e.result.center[1]}>
+          <input type="hidden" id="place_longitude" name="place[longitude]" value=${e.result.center[0]}>
+          <button type="submit" class="btn btn-primary">Add to list</button>
+        </form>`
+      const popupSearch = new mapboxgl.Popup().setHTML(info)
+      new mapboxgl.Marker(e)
+      .setLngLat(e.result.center)
+      .setPopup(popupSearch)
+      .addTo(map);
+    })
 
     map.addControl(new mapboxgl.NavigationControl());
   }
