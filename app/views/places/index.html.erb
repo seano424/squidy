@@ -18,13 +18,18 @@
                 <% else %>
                 
                 <% end %>
-                <button class="btn-vote" id="vote-down-#{id}" style="border: none; background: none;">
+
+                <%= link_to unlike_place_path(place), remote: false, method: :put do %>
                   <%= image_tag('down', class: 'vote-arrow') %>
-                </button>
-                <p id="vote-total-#{id}" style="display: inline;"><%= place.weighted_score %></p> 
-                <button class="btn-vote" id="vote-up-#{id}" style="border: none; background: none;">
+                <% end %>
+                
+                <p id="vote-total-<%= place.id %>" style="display: inline;"><%= place.weighted_score %></p> 
+                
+                <%= link_to like_place_path(place), remote: false, method: :put do %>
                   <%= image_tag('up', class: 'vote-arrow') %>
-                </button>
+                <% end %>
+
+                
               </div>
             </div>
           </div>
