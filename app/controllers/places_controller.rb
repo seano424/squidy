@@ -33,13 +33,9 @@ class PlacesController < ApplicationController
   def upvote
     @place = Place.find(params[:id])
     @place.liked_by current_user
-  end
-
-  def removeupvote
-    @place = Place.find(params[:id])
-    @place.unliked_by current_user
     redirect_to places_path
   end
+
 
   def downvote
     @place = Place.find(params[:id])
@@ -47,10 +43,6 @@ class PlacesController < ApplicationController
     redirect_to places_path
   end
 
-  def removedownvote
-    @place = Place.find(params[:id])
-    @place.undisliked_by current_user
-  end
 
 
   def place_params
