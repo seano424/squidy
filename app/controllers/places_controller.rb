@@ -30,6 +30,21 @@ class PlacesController < ApplicationController
     end
   end
 
+  def upvote
+    @place = Place.find(params[:id])
+    @place.liked_by current_user
+    redirect_to places_path
+  end
+
+
+  def downvote
+    @place = Place.find(params[:id])
+    @place.disliked_by current_user
+    redirect_to places_path
+  end
+
+
+
   def place_params
     params.require(:place).permit(:name, :address, :latitude, :longitude, :city)
   end
