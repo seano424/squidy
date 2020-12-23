@@ -10,8 +10,22 @@
             <div class="card-body">
               <h5 class="card-title"><a href="#" id="link-<%= place.id%>"><%= place.name %></a></h5>
               <p class="card-text"><%= place.address %></p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
-              <%= place.id %>
+              <div>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+                <%id = place.id %>
+                <% if current_user%>
+                
+                <% else %>
+                
+                <% end %>
+                <button class="btn-vote" id="vote-down-#{id}" style="border: none; background: none;">
+                  <%= image_tag('down', class: 'vote-arrow') %>
+                </button>
+                <p id="vote-total-#{id}" style="display: inline;"><%= place.weighted_score %></p> 
+                <button class="btn-vote" id="vote-up-#{id}" style="border: none; background: none;">
+                  <%= image_tag('up', class: 'vote-arrow') %>
+                </button>
+              </div>
             </div>
           </div>
         <% end %>
