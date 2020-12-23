@@ -38,11 +38,13 @@ class PlacesController < ApplicationController
   def removeupvote
     @place = Place.find(params[:id])
     @place.unliked_by current_user
+    redirect_to places_path
   end
 
   def downvote
     @place = Place.find(params[:id])
     @place.disliked_by current_user
+    redirect_to places_path
   end
 
   def removedownvote
