@@ -6,3 +6,21 @@
   text-align: center;
   font-family: 'Open Sans', sans-serif;
 }
+
+.mapboxgl-map, #map, .map {
+  &:focus {
+    outline: none !important;
+    outline: -webkit-focus-ring-color auto 0px !important;
+
+  }
+}
+
+.mapboxgl-ctrl {
+  &:focus {
+    outline: none !important;
+  }
+}
+
+input[type="text"], input[type="password"], textarea, select { 
+  outline: none !important;
+}
