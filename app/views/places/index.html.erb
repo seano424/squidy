@@ -27,8 +27,8 @@
                       <%= image_tag('down', class: 'vote-arrow') %>
                     <% end %>
                   </div>
-                  <div style="min-width: 33px;">
-                    <p id="vote-total-<%= place.id %>" class="text-center" style="position: relative; top: 1px"><%= place.weighted_score %></p> 
+                  <div class="counter" style="min-width: 33px;">
+                    <p id="vote-total-<%= place.id %>" class="text-center" style="position: relative; top: 1px"><%= place.weighted_score %></p>
                   </div>
                   <div class="">
                     <%= link_to like_place_path(place), method: :put, remote: true do %>
