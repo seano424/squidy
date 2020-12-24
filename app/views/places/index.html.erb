@@ -1,14 +1,14 @@
 <div class="row">
-  <div class="col-4" style="overflow-y: scroll; height: 88vh;">
+  <div class="col-4 p-0" style="overflow-y: scroll; height: 88vh;">
     <div class="sidebar">
       <div class="heading">
-        <h1>Playa del Carmen</h1>
+        <h1 class="text-center">Playa del Carmen</h1>
       </div>
       <div id="listings" class="listings">
         <% @places.each do |place| %>
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title"><a href="#" id="link-<%= place.id%>"><%= place.name %></a></h5>
+              <h5 class="card-title"><a href="#" id="link-<%= place.id%>" class="header-name"><%= place.name %></a></h5>
               <p class="card-text"><%= place.address %></p>
               <div>
                 
@@ -50,7 +50,7 @@
       </div>
     </div>
   </div>
-  <div class="col-8">
+  <div class="col-8 p-0">
     <div id="map" class="map" style="width: 100%; height: 512px;" data-markers="<%= @markers.to_json %>"
       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>

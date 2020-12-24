@@ -6,22 +6,5 @@
 @import "vote";
 @import "btn";
 @import "links";
-
-
-html,body
-{
-    width: 100%;
-    margin: 0px;
-    padding: 0px;
-    overflow-x: hidden; 
-}
-
-// html {
-//   min-width: 100%;
-//   min-height: 100%;
-// }
-
-// body {
-//   height: 1054px;
-//   background-color: #FFF;
-// }
+@import "headers";
+@import "body";
