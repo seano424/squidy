@@ -7,6 +7,10 @@
   font-family: 'Open Sans', sans-serif;
 }
 
+.mapboxgl-marker svg g {
+  fill: $warning;
+}
+
 .mapboxgl-map, #map, .map {
   &:focus {
     outline: none !important;

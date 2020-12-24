@@ -71,9 +71,10 @@ const initMapbox = () => {
     map.addControl(geocoder);
 
     geocoder.on('result', function(e) {
-      const name = e.result.place_name.split(",")[0]
-      const address = e.result.place_name.split(",")[1] + ", " + e.result.place_name.split(",")[2]
-      const city = e.result.place_name.split(",")[2]
+      const name = e.result.place_name.split(",")[0];
+      console.log(e.result)
+      const address = e.result.place_name.split(",")[1] + ", " + e.result.place_name.split(",")[2];
+      const city = e.result.place_name.split(",")[2];
       const info = 
         `<h2>${name}</h2>
         <p>${address}</p>
@@ -84,8 +85,8 @@ const initMapbox = () => {
           <input type="hidden" id="place_latitude" name="place[latitude]" value=${e.result.center[1]}>
           <input type="hidden" id="place_longitude" name="place[longitude]" value=${e.result.center[0]}>
           <button type="submit" class="btn btn-primary">Add to list</button>
-        </form>`
-      const popupSearch = new mapboxgl.Popup().setHTML(info)
+        </form>`;
+      const popupSearch = new mapboxgl.Popup().setHTML(info);
       new mapboxgl.Marker(e)
       .setLngLat(e.result.center)
       .setPopup(popupSearch)
