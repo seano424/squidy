@@ -77,6 +77,9 @@ const initMapbox = () => {
       const address = e.result.place_name.substring(e.result.place_name.indexOf(', ') + 2)
       console.log(address);
       const city = e.result.place_name.split(",")[2];
+      const longitude = e.result.center[1];
+      const latitude = e.result.center[0];
+      console.log(`longitude: ${longitude}, latitude: ${latitude}, name: ${name}, address: ${address}`);
       const state_and_zipcode = e.result.place_name.split(",")[3];
       const country = e.result.place_name.split(",")[4];
       console.log(state_and_zipcode, country);
