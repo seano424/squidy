@@ -9,11 +9,11 @@ require 'faker'
 #   Character.create(name: 'Luke', movie: movies.first)
 
 places = [
-  {longitude: 20.633171, latitude: -87.071665, name: "Café Choux Choux", address:  "Avenida 20, Playa del Carmen, Quintana Roo 77720, Mexico"},
-  {longitude: 20.635353, latitude: -87.071644, name: "Bajo Café", address:  "Calle 30 Norte, Playa del Carmen, Quintana Roo 77720, Mexico"},
-  {longitude: 20.635335, latitude: -87.071756, name: "Cafe Orange", address:  "Calle 30, Playa del Carmen, Quintana Roo 77720, Mexico"},
-  {longitude: 20.62921475, latitude: -87.07088525, name: "Starbucks", address:  "5ta Av., Playa del Carmen, Quintana Roo 77710, Mexico"},
-  {longitude: 20.636614, latitude: -87.06662, name: "NEST Coworking Space", address:  "Av. 10, Mz. 150 Lt 18, Col. Zazil-Ha, Playa del Carmen"}
+  {latitude: 20.633171, longitude: -87.071665, name: "Café Choux Choux", address:  "Avenida 20, Playa del Carmen, Quintana Roo 77720, Mexico"},
+  {latitude: 20.635353, longitude: -87.071644, name: "Bajo Café", address:  "Calle 30 Norte, Playa del Carmen, Quintana Roo 77720, Mexico"},
+  {latitude: 20.635335, longitude: -87.071756, name: "Cafe Orange", address:  "Calle 30, Playa del Carmen, Quintana Roo 77720, Mexico"},
+  {latitude: 20.62921475, longitude: -87.07088525, name: "Starbucks", address:  "5ta Av., Playa del Carmen, Quintana Roo 77710, Mexico"},
+  {latitude: 20.636614, longitude: -87.06662, name: "NEST Coworking Space", address:  "Av. 10, Mz. 150 Lt 18, Col. Zazil-Ha, Playa del Carmen"}
 ]
 
 puts "destroying places"
