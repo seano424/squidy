@@ -73,8 +73,12 @@ const initMapbox = () => {
     geocoder.on('result', function(e) {
       const name = e.result.place_name.split(",")[0];
       console.log(e.result)
-      const address = e.result.place_name.split(",")[1] + ", " + e.result.place_name.split(",")[2];
+      const address = e.result.place_name.split(",")[1] + "," + e.result.place_name.split(",")[2] + "," + e.result.place_name.split(",")[3] + "," + e.result.place_name.split(",")[4];
+      console.log(address);
       const city = e.result.place_name.split(",")[2];
+      const state_and_zipcode = e.result.place_name.split(",")[3];
+      const country = e.result.place_name.split(",")[4];
+      console.log(state_and_zipcode, country);
       const info = 
         `<h2>${name}</h2>
         <p>${address}</p>
