@@ -10,3 +10,21 @@
 .mapboxgl-marker svg g {
   fill: $warning;
 }
+
+.mapboxgl-map, #map, .map {
+  &:focus {
+    outline: none !important;
+    outline: -webkit-focus-ring-color auto 0px !important;
+
+  }
+}
+
+.mapboxgl-ctrl {
+  &:focus {
+    outline: none !important;
+  }
+}
+
+input[type="text"], input[type="password"], textarea, select { 
+  outline: none !important;
+}

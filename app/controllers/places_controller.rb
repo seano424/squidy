@@ -1,9 +1,8 @@
 class PlacesController < ApplicationController
   skip_before_action :verify_authenticity_token
-  
+
   def index
     @places = Place.all
-
     @markers = @places.geocoded.map do |place|
       {
         lat: place.latitude,
@@ -13,7 +12,7 @@ class PlacesController < ApplicationController
         image_url: helpers.asset_url('location.png')
       }
     end
-    @place = Place.new
+    # @place = Place.new
   end
 
   def show

@@ -5,7 +5,7 @@ const buildMap = (mapElement) => {
   mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
   return new mapboxgl.Map({
     container: "map",
-    style: "mapbox://styles/seanpatrick89/ckj0d22lr0qno19o1c5xghwpo",
+    style: "mapbox://styles/seanpatrick89/ckj1xtpjy29t619o1rifj8w3c",
     center: [-87.070429, 20.629785],
     zoom: 6, // starting zoom
   });
@@ -39,6 +39,11 @@ const addMarkersToMap = (map, markers) => {
         .setLngLat([marker.lng, marker.lat])
         .setHTML(marker.infoWindow)
         .addTo(map);
+
+      map.flyTo({
+        center: [marker.lng, marker.lat],
+        zoom: 15
+      });
     });
   });
 };
