@@ -39,7 +39,10 @@
                   
                 <div class="collapse" id="collapseExample-<%= place.id %>">
                   <div class="card card-body border-0 pl-0">
-                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+                    <p class="truncate-me text-monospace">
+                      <%= place.reviews.first.content %>
+                    </p>
+                    <button class="btn btn-primary">Explore further...</button>
                   </div>
                 </div>
                 
