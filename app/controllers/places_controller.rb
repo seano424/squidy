@@ -3,6 +3,7 @@ class PlacesController < ApplicationController
 
   def index
     @places = Place.order(cached_votes_score: :desc)
+    # adding this comment to commit and push again
     @markers = @places.geocoded.map do |place|
       {
         lat: place.latitude,
