@@ -28,3 +28,7 @@
 input[type="text"], input[type="password"], textarea, select { 
   outline: none !important;
 }
+
+.mapboxgl-ctrl-top-right, .mapboxgl-ctrl-attrib-inner {
+  margin-right: 20px;
+}
