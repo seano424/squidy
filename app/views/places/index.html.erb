@@ -11,7 +11,10 @@
               <h5 class="card-title"><a href="#" id="link-<%= place.id%>"><%= place.name %></a></h5>
               <p class="card-text"><%= place.address %></p>
               <div>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
+                
+                <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                  Find out more
+                </a>
                 <%id = place.id %>
                 <% if current_user%>
                 
@@ -19,16 +22,23 @@
                 
                 <% end %>
 
-                <%= link_to unlike_place_path(place), remote: true, method: :put do %>
-                  <%= image_tag('down', class: 'vote-arrow') %>
-                <% end %>
-                
-                <p id="vote-total-<%= place.id %>" style="display: inline;"><%= place.weighted_score %></p> 
-                
-                <%= link_to like_place_path(place), remote: true, method: :put do %>
-                  <%= image_tag('up', class: 'vote-arrow') %>
-                <% end %>
+                <div class="vote-links d-inline ml-3">
+                  <%= link_to unlike_place_path(place), method: :put, remote: true do %>
+                    <%= image_tag('down', class: 'vote-arrow') %>
+                  <% end %>
+                  
+                  <p id="vote-total-<%= place.id %>" style="display: inline; margin: 2px"><%= place.weighted_score %></p> 
+                  
+                  <%= link_to like_place_path(place), method: :put, remote: true do %>
+                    <%= image_tag('up', class: 'vote-arrow') %>
+                  <% end %>
+                </div>
 
+                <div class="collapse" id="collapseExample">
+                  <div class="card card-body">
+                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+                  </div>
+                </div>
                 
               </div>
             </div>
