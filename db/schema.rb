@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_24_182057) do
+ActiveRecord::Schema.define(version: 2020_12_24_224006) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,6 +45,14 @@ ActiveRecord::Schema.define(version: 2020_12_24_182057) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "city"
+    t.integer "cached_votes_total", default: 0
+    t.integer "cached_votes_score", default: 0
+    t.integer "cached_votes_up", default: 0
+    t.integer "cached_votes_down", default: 0
+    t.index ["cached_votes_down"], name: "index_places_on_cached_votes_down"
+    t.index ["cached_votes_score"], name: "index_places_on_cached_votes_score"
+    t.index ["cached_votes_total"], name: "index_places_on_cached_votes_total"
+    t.index ["cached_votes_up"], name: "index_places_on_cached_votes_up"
   end
 
   create_table "reviews", force: :cascade do |t|

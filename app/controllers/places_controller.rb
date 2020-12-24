@@ -2,7 +2,7 @@ class PlacesController < ApplicationController
   skip_before_action :verify_authenticity_token
 
   def index
-    @places = Place.all
+    @places = Place.order(cached_votes_score: :desc)
     @markers = @places.geocoded.map do |place|
       {
         lat: place.latitude,
