@@ -39,6 +39,11 @@ const addMarkersToMap = (map, markers) => {
         .setLngLat([marker.lng, marker.lat])
         .setHTML(marker.infoWindow)
         .addTo(map);
+
+      map.flyTo({
+        center: [marker.lng, marker.lat],
+        zoom: 15
+      });
     });
   });
 };
