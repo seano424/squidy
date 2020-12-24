@@ -10,7 +10,7 @@
             <div class="card-body">
               <h5 class="card-title"><a href="#" id="link-<%= place.id%>"><%= place.name %></a></h5>
               <p class="card-text"><%= place.address %></p>
-              <div class="d-flex">
+              <div>
                 
                 <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample-<%= place.id %>" role="button" aria-expanded="false" aria-controls="collapseExample-<%= place.id %>">
                   Find out more
@@ -21,7 +21,7 @@
                 <% else %>
                 
                 <% end %>
-                <div class="d-flex pl-4" style="position: relative; top: 5px">
+                <div class="d-flex pl-4" style="position: absolute; top: 100px; left: 150px">
                   <div class="">
                     <%= link_to unlike_place_path(place), method: :put, remote: true do %>
                       <%= image_tag('down', class: 'vote-arrow') %>
