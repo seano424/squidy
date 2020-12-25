@@ -6,10 +6,22 @@
       </div>
       <div id="listings" class="listings">
         <% @places.each do |place| %>
+          <!-- this is to find out what the majority of users say regarding food, wifi, and charging ports -->
+          <% wifi_boolean_array = [] %>
+          <% cp_boolean_array = [] %>
+          <% food_boolean_array = [] %>
+          <% place.reviews.each do |review| %>
+            <% wifi_boolean_array << review.wifi %>
+            <% cp_boolean_array << review.charging_ports %>
+            <% food_boolean_array << review.food %>
+          <% end %>
+          <% wifi_boolean = wifi_boolean_array.count(true) > wifi_boolean_array.count(false) %>
+          <% cp_boolean = cp_boolean_array.count(true) > cp_boolean_array.count(false) %>
+          <% food_boolean = food_boolean_array.count(true) > food_boolean_array.count(false) %>
           <div class="card">
             <div class="card-body">
               <h5 class="card-title"><a href="#" id="link-<%= place.id%>" class="header-name"><%= place.name %></a></h5>
-              <p class="card-text"><%= place.address %></p>
+              <p class="card-text" style="min-height: 50px;"><%= place.address %></p>
               <div>
                 
                 <a class="btn btn-primary mb-1" data-toggle="collapse" href="#collapseExample-<%= place.id %>" role="button" aria-expanded="false" aria-controls="collapseExample-<%= place.id %>">
@@ -36,12 +48,31 @@
                     <% end %>
                   </div>
                 </div>
-                  
+                
+
+                
                 <div class="collapse" id="collapseExample-<%= place.id %>">
                   <div class="card card-body border-0 pl-0">
+
+                    <% opener_array = ["What users are saying about", "The most recent reviews regarding", "Here are some reviews for"] %>
+                    
+                    <% if place.reviews.first %>
+                    <p class="text-monospace"><%= opener_array.sample %> <%= place.name %>...</p>
                     <p class="truncate-me text-monospace">
                       <%= place.reviews.first.content %>
                     </p>
+                    <% end %>
+
+                    <% if place.reviews.second %>
+                    <p class="truncate-me text-monospace">
+                      <%= place.reviews.second.content %>
+                    </p>
+                    <% end %>
+                    <div class="input-group-prepend">
+                      <div class="input-group-text">
+                        <input type="checkbox" aria-label="Checkbox for following text input">
+                      </div>
+                    </div>
                     <button class="btn btn-primary">Explore further...</button>
                   </div>
                 </div>
