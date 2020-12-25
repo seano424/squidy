@@ -72,13 +72,11 @@ const initMapbox = () => {
 
     geocoder.on('result', function(e) {
       const name = e.result.place_name.split(",")[0];
-      console.log(e.result)
       // const address = e.result.place_name.split(",")[1] + "," + e.result.place_name.split(",")[2] + "," + e.result.place_name.split(",")[3] + "," + e.result.place_name.split(",")[4];
       const address = e.result.place_name.substring(e.result.place_name.indexOf(', ') + 2)
-      console.log(address);
       const city = e.result.place_name.split(",")[2];
-      const longitude = e.result.center[1];
-      const latitude = e.result.center[0];
+      const longitude = e.result.center[0];
+      const latitude = e.result.center[1];
       console.log(`longitude: ${longitude}, latitude: ${latitude}, name: ${name}, address: ${address}`);
       const state_and_zipcode = e.result.place_name.split(",")[3];
       const country = e.result.place_name.split(",")[4];
