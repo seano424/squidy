@@ -33,7 +33,7 @@
                 <% else %>
                 
                 <% end %>
-                <div class="d-flex pl-5" style="position: absolute; top: 125px; left: 150px">
+                <div class="d-flex" style="position: absolute; top: 125px; left: 332px">
                   <div class="">
                     <%= link_to unlike_place_path(place), method: :put, remote: true do %>
                       <%= image_tag('down', class: 'vote-arrow') %>
@@ -49,29 +49,60 @@
                   </div>
                 </div>
                 
-
-                
-                <div class="collapse" id="collapseExample-<%= place.id %>">
+                <div class="collapse text-monospace" id="collapseExample-<%= place.id %>">
                   <div class="card card-body border-0 pl-0">
 
-                    <% opener_array = ["What users are saying about", "The most recent reviews regarding", "Here are some reviews for"] %>
+                    <% opener_array = ["What users are saying about", "The most recent reviews regarding", "Reviews for"] %>
                     
                     <% if place.reviews.first %>
-                    <p class="text-monospace"><%= opener_array.sample %> <%= place.name %>...</p>
-                    <p class="truncate-me text-monospace">
+                    <p class="font-italic" style="color: purple;"><%= opener_array.sample %> <%= place.name %>...</p>
+                    <p class="truncate-me">
                       <%= place.reviews.first.content %>
                     </p>
                     <% end %>
-
                     <% if place.reviews.second %>
-                    <p class="truncate-me text-monospace">
+                    <p class="truncate-me">
                       <%= place.reviews.second.content %>
                     </p>
                     <% end %>
-                    <div class="input-group-prepend">
-                      <div class="input-group-text">
-                        <input type="checkbox" aria-label="Checkbox for following text input">
-                      </div>
+
+                    <p class="info-labels-title font-italic" style="color: purple;">Based on a majority...</p>
+                    <div class="info-labels">
+                      <% if food_boolean %>
+                        <div class="d-flex">
+                          <p class="more-info">Food</p>
+                          <p>✅</p>
+                        </div>
+                      <% else %>
+                        <div class="d-flex">
+                          <p class="more-info">Food</p>
+                          <p>❎</p>
+                        </div>
+                      <% end %>
+  
+                      <% if wifi_boolean %>
+                        <div class="d-flex">
+                          <p class="more-info">Wifi</p>
+                          <p>✅</p>
+                        </div>
+                      <% else %>
+                        <div class="d-flex">
+                          <p class="more-info">Wifi</p>
+                          <p>❎</p>
+                        </div>
+                      <% end %>
+  
+                      <% if cp_boolean %>
+                        <div class="d-flex">
+                          <p class="more-info">Charging Ports</p>
+                          <p>✅</p>
+                        </div>
+                      <% else %>
+                        <div class="d-flex">
+                          <p class="more-info">Charging Ports</p>
+                          <p>❎</p>
+                        </div>
+                      <% end %>
                     </div>
                     <button class="btn btn-primary">Explore further...</button>
                   </div>
