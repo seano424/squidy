@@ -6,10 +6,22 @@
       </div>
       <div id="listings" class="listings">
         <% @places.each do |place| %>
+          <!-- this is to find out what the majority of users say regarding food, wifi, and charging ports -->
+          <% wifi_boolean_array = [] %>
+          <% cp_boolean_array = [] %>
+          <% food_boolean_array = [] %>
+          <% place.reviews.each do |review| %>
+            <% wifi_boolean_array << review.wifi %>
+            <% cp_boolean_array << review.charging_ports %>
+            <% food_boolean_array << review.food %>
+          <% end %>
+          <% wifi_boolean = wifi_boolean_array.count(true) > wifi_boolean_array.count(false) %>
+          <% cp_boolean = cp_boolean_array.count(true) > cp_boolean_array.count(false) %>
+          <% food_boolean = food_boolean_array.count(true) > food_boolean_array.count(false) %>
           <div class="card">
             <div class="card-body">
               <h5 class="card-title"><a href="#" id="link-<%= place.id%>" class="header-name"><%= place.name %></a></h5>
-              <p class="card-text"><%= place.address %></p>
+              <p class="card-text" style="min-height: 50px;"><%= place.address %></p>
               <div>
                 
                 <a class="btn btn-primary mb-1" data-toggle="collapse" href="#collapseExample-<%= place.id %>" role="button" aria-expanded="false" aria-controls="collapseExample-<%= place.id %>">
@@ -21,7 +33,7 @@
                 <% else %>
                 
                 <% end %>
-                <div class="d-flex pl-4" style="position: absolute; top: 100px; left: 150px">
+                <div class="d-flex" style="position: absolute; top: 125px; left: 332px">
                   <div class="">
                     <%= link_to unlike_place_path(place), method: :put, remote: true do %>
                       <%= image_tag('down.png', class: 'vote-arrow') %>
@@ -36,10 +48,63 @@
                     <% end %>
                   </div>
                 </div>
-                  
-                <div class="collapse" id="collapseExample-<%= place.id %>">
+                
+                <div class="collapse text-monospace" id="collapseExample-<%= place.id %>">
                   <div class="card card-body border-0 pl-0">
-                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+
+                    <% opener_array = ["What users are saying about", "The most recent reviews regarding", "Reviews for"] %>
+                    
+                    <% if place.reviews.first %>
+                    <p class="font-italic" style="color: darkturquoise;"><%= opener_array.sample %> <%= place.name %>...</p>
+                    <p class="truncate-me">
+                      <%= place.reviews.first.content %>
+                    </p>
+                    <% end %>
+                    <% if place.reviews.second %>
+                    <p class="truncate-me">
+                      <%= place.reviews.second.content %>
+                    </p>
+                    <% end %>
+
+                    <p class="info-labels-title font-italic" style="color: darkturquoise;">Based on a majority of users:</p>
+                    <div class="info-labels">
+                      <% if food_boolean %>
+                        <div class="d-flex">
+                          <p class="more-info">Food</p>
+                          <p>✅</p>
+                        </div>
+                      <% else %>
+                        <div class="d-flex">
+                          <p class="more-info">Food</p>
+                          <p>❌</p>
+                        </div>
+                      <% end %>
+  
+                      <% if wifi_boolean %>
+                        <div class="d-flex">
+                          <p class="more-info">Wifi</p>
+                          <p>✅</p>
+                        </div>
+                      <% else %>
+                        <div class="d-flex">
+                          <p class="more-info">Wifi</p>
+                          <p>❌</p>
+                        </div>
+                      <% end %>
+  
+                      <% if cp_boolean %>
+                        <div class="d-flex">
+                          <p class="more-info">Charging Ports</p>
+                          <p>✅</p>
+                        </div>
+                      <% else %>
+                        <div class="d-flex">
+                          <p class="more-info">Charging Ports</p>
+                          <p>❌</p>
+                        </div>
+                      <% end %>
+                    </div>
+                    <button class="btn btn-primary">Explore more reviews...</button>
                   </div>
                 </div>
                 
