@@ -1,3 +1,24 @@
 .vote-arrow {
   width: 30px;
 }
+
+.vote-btn {
+  font-size: 28px;
+}
+
+.upvote-btn {
+  color: $primary;
+}
+
+.downvote-btn {
+  color: $melon;
+}
+
+.upvote-btn, .downvote-btn {
+  &.disabled-btn {
+    color: gray;
+    &:hover {
+      cursor: not-allowed;
+    }
+  }
+}
