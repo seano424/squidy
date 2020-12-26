@@ -24,7 +24,7 @@
                 <div class="d-flex pl-4" style="position: absolute; top: 100px; left: 150px">
                   <div class="">
                     <%= link_to unlike_place_path(place), method: :put, remote: true do %>
-                      <%= image_tag('down', class: 'vote-arrow') %>
+                      <%= image_tag('down.png', class: 'vote-arrow') %>
                     <% end %>
                   </div>
                   <div class="counter" style="min-width: 33px;">
@@ -32,7 +32,7 @@
                   </div>
                   <div class="">
                     <%= link_to like_place_path(place), method: :put, remote: true do %>
-                      <%= image_tag('up', class: 'vote-arrow') %>
+                      <%= image_tag('up.png', class: 'vote-arrow') %>
                     <% end %>
                   </div>
                 </div>
