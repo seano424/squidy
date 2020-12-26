@@ -36,7 +36,12 @@
                 <div class="d-flex" style="position: absolute; top: 125px; left: 332px">
                   <div class="">
                     <%= link_to unlike_place_path(place), method: :put, remote: true do %>
-                      <%= image_tag('down.png', class: 'vote-arrow') %>
+                      <% if current_user.disliked? place %>
+                        <i class="fas fa-arrow-alt-circle-down vote-btn downvote-btn disabled-btn" id="downvote-btn-<%= place.id %>"></i>
+                      <% else %>
+                        <i class="fas fa-arrow-alt-circle-down vote-btn downvote-btn" id="downvote-btn-<%= place.id %>"></i>
+                      <% end %>
+                        <%# <%= image_tag('down.png', class: 'vote-arrow') %>
                     <% end %>
                   </div>
                   <div class="counter" style="min-width: 33px;">
@@ -44,7 +49,12 @@
                   </div>
                   <div class="">
                     <%= link_to like_place_path(place), method: :put, remote: true do %>
-                      <%= image_tag('up.png', class: 'vote-arrow') %>
+                      <% if current_user.liked? place %>
+                        <i class="fas fa-arrow-alt-circle-up vote-btn upvote-btn disabled-btn" id="upvote-btn-<%= place.id %>"></i>
+                      <% else %>
+                        <i class="fas fa-arrow-alt-circle-up vote-btn upvote-btn" id="upvote-btn-<%= place.id %>"></i>
+                      <% end %>
+                        <%# <%= image_tag('up.png', class: 'vote-arrow') %>
                     <% end %>
                   </div>
                 </div>
