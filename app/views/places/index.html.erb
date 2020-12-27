@@ -24,14 +24,14 @@
               <p class="card-text" style="min-height: 50px;"><%= place.address %></p>
               <div>
                 
-                <a class="btn btn-primary mb-1 collapse-text" data-toggle="collapse" href="#collapseExample-<%= place.id %>" role="button" aria-expanded="false" aria-controls="collapseExample-<%= place.id %>">See more</a>
+                <a class="btn btn-primary btn-lg w-50 mb-1 collapse-text" data-toggle="collapse" href="#collapseExample-<%= place.id %>" role="button" aria-expanded="false" aria-controls="collapseExample-<%= place.id %>">See more</a>
                 <%id = place.id %>
                 <% if current_user%>
                 
                 <% else %>
                 
                 <% end %>
-                <div class="d-flex" style="position: absolute; top: 125px; left: 332px">
+                <div class="d-flex" style="position: absolute; top: 68%; left: 78%">
                   <div class="">
                     <%= link_to unlike_place_path(place), method: :put, remote: true do %>
                       <% if current_user.disliked? place %>
@@ -57,7 +57,7 @@
                   </div>
                 </div>
                 
-                <div class="collapse text-monospace m-1" id="collapseExample-<%= place.id %>">
+                <div class="collapse m-1" id="collapseExample-<%= place.id %>">
                   <div class="card card-body border-0 pl-0">
 
                     <% opener_array = ["What users are saying about", "The most recent reviews regarding", "Reviews for"] %>
