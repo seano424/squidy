@@ -1,7 +1,7 @@
 const collapseBtn = () => {
-  const collapseBtn = document.querySelector('.collapse-text');
-  const findOutMoreBtn = document.querySelector('.find-out-more');
   const truncatedInfo = document.querySelector('.truncate-me');
+  const collapseBtn = document.querySelector('.collapse-text');
+  const findOutMoreBtn = document.querySelectorAll('.find-out-more');
 
   collapseBtn.addEventListener('click', () => {
     console.log(collapseBtn.innerHTML);
@@ -12,15 +12,24 @@ const collapseBtn = () => {
     }
   })
 
-  findOutMoreBtn.addEventListener('click', () => {
-    console.log(truncatedInfo.textContent);
-    truncatedInfo.classList.toggle('truncate-me');
-    if (findOutMoreBtn.innerHTML === "more") {
-      findOutMoreBtn.innerHTML = "less"
-    } else {
-      findOutMoreBtn.innerHTML = "more"
-    }
+  findOutMoreBtn.forEach(function(element) {
+    element.addEventListener('click', () => {
+      console.log(element.previousElementSibling.innerHTML);
+      element.previousElementSibling.classList.toggle('truncate-me');
+        if (element.innerHTML === "more") {
+          element.innerHTML = "less"
+        } else {
+          element.innerHTML = "more"
+        }
+
+
+    })
   })
+
+  // findOutMoreBtn.addEventListener('click', () => {
+  //   console.log(truncatedInfo.textContent);
+  //   truncatedInfo.classList.toggle('truncate-me');
+  // })
 
 }
 
