@@ -1,0 +1,39 @@
+<h1>hello</h1>
+
+<div class="row">
+  <div class="col-6 sign-up-background-2" style="height: 650px;">
+    <% if rand(1..2) == 1 %>
+      <%= image_tag "cafe-1.jpg", class: "background-art-1" %>
+    <% else %>
+      <%= image_tag "cafe-2.jpg", class: "background-art-2" %>
+    <% end %>
+  </div>
+  <div class="col-6" style="height: 650px;">
+    <div class="container registration-container main-container mt-4 p-4">
+      <div class="header text-center">
+        <h1 class="mb-4">Squidy</h1>
+        <h6 class="font-italic mb-3">Sign up to explore great cafes and workspaces around the globe <span class="font-normal">🌏🌎🌍</span></h6>
+      </div>
+      <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <div class="form-inputs">
+        <%= f.input :email,
+                    required: false,
+                    autofocus: true,
+                    input_html: { autocomplete: "email" } %>
+        <%= f.input :password,
+                    required: false,
+                    input_html: { autocomplete: "current-password" } %>
+        <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+      </div>
+      <div class="form-actions">
+        <%= f.button :submit, "Log in", class: 'btn-submit' %>
+      </div>
+      <% end %>
+    </div>
+    <div class="container registration-container d-flex justify-content-center mt-5">
+      <p class="mr-2">Have an account?</p>
+      <%= render "devise/shared/links" %>
+    </div>
+  </div>
+</div>
+

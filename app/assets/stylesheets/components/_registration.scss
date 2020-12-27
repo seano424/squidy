@@ -1,0 +1,50 @@
+.background-art-1 {
+  width: 57vw;
+  position: relative;
+  top: -15rem;
+  z-index: -1;
+  right: 4rem;
+}
+
+.background-art-2 {
+  width: 52vw;
+  position: relative;
+  top: -15rem;
+  z-index: -1;
+  right: 0rem;
+}
+
+.font-normal {
+  font-style: normal;
+}
+
+.registration-container {
+  width: 40vw;
+}
+
+.main-container {
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+.user_login_photo {
+  display: flex;
+  justify-content: center;
+}
+
+.btn-submit {
+  color: white;
+}
+
+.upload-photo {
+  padding: 10px 20px;
+  cursor: pointer;
+  font-weight: 500;
+  background: white;
+  border-radius: 5px;
+  width: 100vw;
+  text-align: center;
+}
+
+abbr[title="required"] {
+  display: none;
+}

@@ -1,7 +1,14 @@
-html,body
-{
-    width: 100%;
-    margin: 0px;
-    padding: 0px;
-    overflow: hidden; 
+html,
+body {
+  width: 100%;
+  margin: 0px;
+  padding: 0px;
+}
+
+.map-page {
+  overflow: hidden;
+}
+
+.registration-page {
+  overflow-x: hidden;
 }
