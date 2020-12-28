@@ -1,0 +1,26 @@
+<div class="container my-5">
+  <h1 class="mb-3"><%= @place.name %> reviews</h1>
+  <% @place.reviews.each do |review| %>
+    <p class="my-0"><strong><%= review.user.username %></strong></p>
+    <p class="mt-0"><%= review.content %></p>
+  <% end %>
+</div>
+
+<div class="container my-5">
+  <%= render "reviews/new" %>
+</div>
+
+<div class="container mt-5">
+</div>
+
+
+
+<div class="card">
+  <h5 class="card-header">Featured</h5>
+  <div class="card-body">
+    <h5 class="card-title">Special title treatment</h5>
+    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+    <%= link_to "Go back", places_path, class: "btn btn-primary" %>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>

@@ -1,3 +1,24 @@
 .more-info {
   min-width: 382px;
 }
+
+.find-out-more {
+  background: white;
+  transition: background 5s ease-in-out;
+  &:hover {
+    background: linear-gradient(to top, red 50%, transparent 50%);
+
+  }
+}
+
+
+// .highlight {
+//   visibility: hidden;
+//   background: yellow;
+//   height: 2vh;
+//   position: relative;
+//   width: 5vw;
+//   top: 6px;
+//   right: 38px;
+//   transition: all 0.2s ease-in-out;
+// }
