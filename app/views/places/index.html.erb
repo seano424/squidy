@@ -65,7 +65,7 @@
                     <% opener_array = ["What users are saying about", "The most recent reviews regarding", "Reviews for"] %>
                     
                     <% if place.reviews.first %>
-                    <p class="font-italic" style="color: darkturquoise;"><%= opener_array.sample %> <%= place.name %>...</p>
+                    <p class="font-italic" style="color: darkturquoise; font-size: 1.4rem;"><%= opener_array.sample %> <%= place.name %>...</p>
                     <p class="truncate-me">
                       <%= place.reviews.first.content %>
                     </p>
@@ -76,41 +76,41 @@
                     </p>
                     <% end %>
 
-                    <p class="info-labels-title font-italic" style="color: darkturquoise;">Based on a majority of users:</p>
-                    <div class="info-labels">
+                    <p class="info-labels-title font-italic" style="color: darkturquoise;"> <span>Based on a majority of users, <%= place.name %> has the following...</span></p>
+                    <div class="info-labels d-flex justify-content-between">
                       <% if food_boolean %>
                         <div class="d-flex">
-                          <p class="more-info">Food</p>
-                          <p>✅</p>
+                          <p>Food</p>
+                          <p class="pl-2">✅</p>
                         </div>
                       <% else %>
                         <div class="d-flex">
-                          <p class="more-info">Food</p>
-                          <p>❌</p>
+                          <p>Food</p>
+                          <p class="pl-2">❌</p>
                         </div>
                       <% end %>
   
                       <% if wifi_boolean %>
                         <div class="d-flex">
-                          <p class="more-info">Wifi</p>
-                          <p>✅</p>
+                          <p>Wifi</p>
+                          <p class="pl-2">✅</p>
                         </div>
                       <% else %>
                         <div class="d-flex">
-                          <p class="more-info">Wifi</p>
-                          <p>❌</p>
+                          <p>Wifi</p>
+                          <p class="pl-2">❌</p>
                         </div>
                       <% end %>
   
                       <% if cp_boolean %>
                         <div class="d-flex">
-                          <p class="more-info">Charging Ports</p>
-                          <p>✅</p>
+                          <p>Charging Ports</p>
+                          <p class="pl-2">✅</p>
                         </div>
                       <% else %>
                         <div class="d-flex">
-                          <p class="more-info">Charging Ports</p>
-                          <p>❌</p>
+                          <p>Charging Ports</p>
+                          <p class="pl-2">❌</p>
                         </div>
                       <% end %>
                     </div>
