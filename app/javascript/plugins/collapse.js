@@ -6,7 +6,7 @@ const collapseBtn = () => {
   const findOutMoreBtn = document.querySelectorAll('.find-out-more');
 
   collapseBtn.addEventListener('click', () => {
-    console.log(collapseBtn.innerHTML);
+    // console.log(collapseBtn.innerHTML);
     if (collapseBtn.innerHTML === "See more") {
       collapseBtn.innerHTML = "See less"
     } else {
@@ -16,7 +16,7 @@ const collapseBtn = () => {
 
   findOutMoreBtn.forEach(function(element) {
     element.addEventListener('click', () => {
-      console.log(element.previousElementSibling.innerHTML);
+      // console.log(element.previousElementSibling.innerHTML);
       element.previousElementSibling.classList.toggle('truncate-me');
         if (element.innerHTML === "more") {
           element.innerHTML = "less"
@@ -28,23 +28,17 @@ const collapseBtn = () => {
     })
   })
 
-  seeReviews.forEach((review) => {
-    review.addEventListener('submit', (event) => {
-      // event.preventDefault();
-      console.log(event.target[0].value[0]);
-      // const allReviews = placeInput.value;
-      // console.log(allReviews)
-      // allReviews.forEach(function(event) {
-      //   console.log(event);
-      // })
-    })
-  })
-  
-  // findOutMoreBtn.addEventListener('click', () => {
-  //   console.log(truncatedInfo.textContent);
-  //   truncatedInfo.classList.toggle('truncate-me');
+  // seeReviews.forEach((review) => {
+  //   review.addEventListener('submit', (event) => {
+  //     event.preventDefault();
+  //     console.log(event.target[0].value[0]);
+  //     const allReviews = placeInput.value;
+  //     console.log(allReviews)
+  //     allReviews.forEach(function(event) {
+  //       console.log(event);
+  //     })
+  //   })
   // })
-
 }
 
 export { collapseBtn }

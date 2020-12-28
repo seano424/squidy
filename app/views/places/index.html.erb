@@ -115,7 +115,7 @@
                     </div>
                     <form action="/places" class="see-more-reviews">
                       <input name="selected_place" class="place-reviews" type="hidden" value="<%= place.id %>">
-                      <button class="btn btn-primary" type="submit">Explore more reviews...</button>
+                      <button class="btn btn-primary open-reviews" type="submit">Explore more reviews...</button>
                     </form>
                   </div>
                 </div>
@@ -128,7 +128,7 @@
   </div>
   <div class="col-8 p-0">
     
-    <div class="reviews-content" id="reviews-content">
+    <div class="hide-content" id="reviews-content">
       <!-- <%= render "review" %> -->
       <% if params[:selected_place] %>
         <%= render "show", remote: true %>
