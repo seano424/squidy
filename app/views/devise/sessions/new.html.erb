@@ -1,4 +1,3 @@
-<h1>hello</h1>
 
 <div class="row">
   <div class="col-6 sign-up-background-2" style="height: 650px;">
@@ -26,12 +25,12 @@
         <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
       </div>
       <div class="form-actions">
-        <%= f.button :submit, "Log in", class: 'btn-submit' %>
+        <%= f.button :submit, "Log in", class: 'btn-submit btn-primary btn-block btn-lg' %>
       </div>
       <% end %>
     </div>
-    <div class="container registration-container d-flex justify-content-center mt-5">
-      <p class="mr-2">Have an account?</p>
+    <div class="container registration-container mt-5">
+      
       <%= render "devise/shared/links" %>
     </div>
   </div>
