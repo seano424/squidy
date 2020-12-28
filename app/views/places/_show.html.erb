@@ -1,13 +1,13 @@
 <div class="container my-5">
-  <h1 class="mb-3"><%= @place.name %> reviews</h1>
-  <% @place.reviews.each do |review| %>
+  <h1 class="mb-3"><%= place.name %> reviews</h1>
+  <% place.reviews.each do |review| %>
     <p class="my-0"><strong><%= review.user.username %></strong></p>
     <p class="mt-0"><%= review.content %></p>
   <% end %>
 </div>
 
 <div class="container my-5">
-  <%= render "reviews/new" %>
+  <%= render "reviews/new", place: place %>
 </div>
 
 <div class="container mt-5">
