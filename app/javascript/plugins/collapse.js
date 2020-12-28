@@ -2,6 +2,8 @@ const collapseBtn = () => {
   const collapseBtn = document.querySelector('.collapse-text');
   const findOutMoreBtn = document.querySelector('.find-out-more');
   const truncatedInfo = document.querySelector('.truncate-me');
+  const seeReviews = document.querySelector('.see-more-reviews');
+  const placeInput = document.querySelector('.place-reviews')
 
   collapseBtn.addEventListener('click', () => {
     console.log(collapseBtn.innerHTML);
@@ -20,6 +22,14 @@ const collapseBtn = () => {
     } else {
       findOutMoreBtn.innerHTML = "more"
     }
+  })
+
+  seeReviews.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const allReviews = placeInput.value;
+    allReviews.forEach(function(event) {
+      console.log(event);
+    })
   })
 
 }

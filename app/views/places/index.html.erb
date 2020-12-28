@@ -39,7 +39,6 @@
                       <% else %>
                         <i class="fas fa-arrow-alt-circle-down vote-btn downvote-btn" id="downvote-btn-<%= place.id %>"></i>
                       <% end %>
-                        <%# <%= image_tag('down.png', class: 'vote-arrow') %>
                     <% end %>
                   </div>
                   <div class="counter" style="min-width: 33px;">
@@ -52,7 +51,6 @@
                       <% else %>
                         <i class="fas fa-arrow-alt-circle-up vote-btn upvote-btn" id="upvote-btn-<%= place.id %>"></i>
                       <% end %>
-                        <%# <%= image_tag('up.png', class: 'vote-arrow') %>
                     <% end %>
                   </div>
                 </div>
@@ -116,7 +114,10 @@
                         </div>
                       <% end %>
                     </div>
-                    <button class="btn btn-primary">Explore more reviews...</button>
+                    <form action="/places" class="see-more-reviews">
+                      <input class="place-reviews" type="hidden" value="<%= place.reviews %>">
+                      <button class="btn btn-primary" type="submit">Explore more reviews...</button>
+                    </form>
                   </div>
                 </div>
                 
@@ -129,7 +130,7 @@
   </div>
   <div class="col-8 p-0">
     
-    <div class="reviews-content">
+    <div class="reviews-content" id="reviews-content">
       <!-- <%= render "review" %> -->
       <%= render "review" %>
     </div>
