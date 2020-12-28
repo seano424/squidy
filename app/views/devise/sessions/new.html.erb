@@ -1,14 +1,14 @@
 
-<div class="row">
-  <div class="col-6 sign-up-background-2" style="height: 650px;">
-    <% if rand(1..2) == 1 %>
+<div class="row" style="height: 100vh;">
+  <div class="col-6 background-2">
+    <!-- <% if rand(1..2) == 1 %>
       <%= image_tag "cafe-1.jpg", class: "background-art-1" %>
     <% else %>
       <%= image_tag "cafe-2.jpg", class: "background-art-2" %>
-    <% end %>
+    <% end %> -->
   </div>
-  <div class="col-6" style="height: 650px;">
-    <div class="container registration-container main-container mt-4 p-4">
+  <div class="col-6">
+    <div class="container registration-container main-container mt-3 p-4">
       <div class="header text-center">
         <h1 class="mb-4">Squidy</h1>
         <h6 class="font-italic mb-3">Sign up to explore great cafes and workspaces around the globe <span class="font-normal">🌏🌎🌍</span></h6>
@@ -29,7 +29,7 @@
       </div>
       <% end %>
     </div>
-    <div class="container registration-container mt-5">
+    <div class="container registration-container mt-4">
       
       <%= render "devise/shared/links" %>
     </div>
