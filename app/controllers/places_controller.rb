@@ -13,12 +13,16 @@ class PlacesController < ApplicationController
         image_url: helpers.asset_url('location.png')
       }
     end
-    # @place = Place.new
+    if params[:selected_place]
+      @place = Place.find(params[:selected_place])
+    end
   end
 
   def show
-    @place = Place.find(params[:id])
-    @review = Review.new
+    if params[:selected_place]
+      @place = Place.find(params[:selected_place])
+      @review = Review.new
+    end
   end
 
   def create
@@ -33,7 +37,6 @@ class PlacesController < ApplicationController
   def upvote
     @place = Place.find(params[:id])
     @place.liked_by current_user
-    # redirect_to places_path(anchor: "link-#{@place.id}")
     respond_to do |format|
       format.js { render :action => "vote" }
     end
