@@ -17,10 +17,10 @@
 
   <% if current_page?(root_path) %>
   <body class="map-page">
-    <%= render 'shared/navbar' %>
     <% else %>
-  <body class="registration-page">      
-  <% end %>
+    <body class="registration-page">      
+    <% end %>
+      <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
     <%= yield %>
   </body>
