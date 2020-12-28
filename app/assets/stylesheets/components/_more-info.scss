@@ -4,9 +4,10 @@
 
 .find-out-more {
   background: white;
-  width: 10%;
+  width: 20%;
   transition: width .3s;
   &:hover {
+    cursor: pointer;
     width: 20%;
     background: linear-gradient(to top, red 50%, transparent 50%);
 
