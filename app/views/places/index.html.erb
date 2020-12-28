@@ -67,15 +67,14 @@
                     <p class="truncate-me">
                       <%= place.reviews.first.content %>
                     </p>
-                    <div class="more-info d-flex">
-                      <p class="find-out-more">more</p>
-                      <p class="highlight"></p>
-                    </div>
+                    <p class="find-out-more">more</p>
+                    
                     <% end %>
                     <% if place.reviews.second %>
                     <p class="truncate-me">
                       <%= place.reviews.second.content %>
                     </p>
+                    <p class="find-out-more">more</p>
                     <% end %>
 
                     <p class="info-labels-title font-italic" style="color: darkturquoise;"> <span>Based on a majority of users, <%= place.name %> has the following...</span></p>
