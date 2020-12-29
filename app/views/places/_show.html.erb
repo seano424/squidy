@@ -1,33 +1,26 @@
-<div class="container my-5">
-  <h1 class="mb-3"><%= @place.name %> reviews</h1>
-  <% @place.reviews.each do |review| %>
-    <div class="user-info d-flex align-items-center">
-    <% if review.user.profile_photo.attached? %>
-      <%= cl_image_tag review.user.profile_photo.key, class: "avatar mr-2" %>
-    <% else %>
-      <%= image_tag "squid.png", class: "avatar mr-2" %>
-    <% end %>
-    <p class="my-0"><strong><%= review.user.username %></strong></p>
-  </div>
-    <p class="mt-0"><%= review.content %></p>
+
+<div class="container my-5 px-5">
+<h1 class="mb-3 review-header">👈 <%= @place.name %> reviews</h1>
+<% @place.reviews.each do |review| %>
+<div class="user-info d-flex align-items-center">
+  <% if review.user.profile_photo.attached? %>
+  <%= cl_image_tag review.user.profile_photo.key, class: "avatar mr-2" %>
+  <% else %>
+  <%= image_tag "squid.png", class: "avatar mr-2" %>
+  <% end %>
+  <p class="my-0"><strong><%= review.user.username %></strong></p>
+</div>
+<p class="mt-0"><%= review.content %></p>
   <% end %>
 </div>
 
+
 <div class="container my-5">
+  <a href="#" class="btn btn-primary d-block" style="width: 35%; margin: 0px auto;">write a review + modal will pop up</a>
+</div>
+
+<!-- <div class="container my-5">
   <%= render "reviews/new", place: @place %>
-</div>
-
-<div class="container mt-5">
-</div>
+</div> -->
 
 
-
-<div class="card">
-  <h5 class="card-header">Featured</h5>
-  <div class="card-body">
-    <h5 class="card-title">Special title treatment</h5>
-    <%# <p class="card-text"><%= review.content %></p>
-    <%= link_to "Go back", places_path, class: "btn btn-primary" %>
-    <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
-  </div>
-</div>

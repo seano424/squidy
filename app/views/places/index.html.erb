@@ -24,39 +24,36 @@
               <p class="card-text" style="min-height: 50px;"><%= place.address %></p>
               <div>
                 
-                <a class="btn btn-primary btn-lg w-50 mb-1 collapse-text" data-toggle="collapse" href="#collapseExample-<%= place.id %>" role="button" aria-expanded="false" aria-controls="collapseExample-<%= place.id %>">See more</a>
-                <%id = place.id %>
-                <% if current_user%>
                 
-                <% else %>
-                
-                <% end %>
-                <div class="d-flex" style="position: absolute; top: 68%; left: 78%">
-                  <div class="">
-                    <%= link_to unlike_place_path(place), method: :put, remote: true do %>
-                      <% if current_user.disliked? place %>
-                        <i class="fas fa-arrow-alt-circle-down vote-btn downvote-btn disabled-btn" id="downvote-btn-<%= place.id %>"></i>
-                      <% else %>
-                        <i class="fas fa-arrow-alt-circle-down vote-btn downvote-btn" id="downvote-btn-<%= place.id %>"></i>
+                <div class="d-flex">
+                  <a class="btn btn-primary w-50 mb-1 collapse-text" data-toggle="collapse" href="#collapseExample-<%= place.id %>" role="button" aria-expanded="false" aria-controls="collapseExample-<%= place.id %>">See more</a>
+                  <div class="icons" style="display: flex; position: relative; top: 8px; left: 50px;">
+                    
+                      <%= link_to unlike_place_path(place), method: :put, remote: true do %>
+                        <% if current_user.disliked? place %>
+                          <i class="fas fa-arrow-alt-circle-down vote-btn downvote-btn disabled-btn" id="downvote-btn-<%= place.id %>"></i>
+                        <% else %>
+                          <i class="fas fa-arrow-alt-circle-down vote-btn downvote-btn" id="downvote-btn-<%= place.id %>"></i>
+                        <% end %>
                       <% end %>
-                    <% end %>
-                  </div>
-                  <div class="counter" style="min-width: 33px;">
-                    <p id="vote-total-<%= place.id %>" class="text-center vote-total" style="position: relative; top: 1px"><%= place.weighted_score %></p>
-                  </div>
-                  <div class="">
-                    <%= link_to like_place_path(place), method: :put, remote: true do %>
-                      <% if current_user.liked? place %>
-                        <i class="fas fa-arrow-alt-circle-up vote-btn upvote-btn disabled-btn" id="upvote-btn-<%= place.id %>"></i>
-                      <% else %>
-                        <i class="fas fa-arrow-alt-circle-up vote-btn upvote-btn" id="upvote-btn-<%= place.id %>"></i>
+                    
+                    <div class="counter" style="min-width: 33px;">
+                      <p id="vote-total-<%= place.id %>" class="text-center vote-total" style="position: relative; top: 1px"><%= place.weighted_score %></p>
+                    </div>
+                    <div class="">
+                      <%= link_to like_place_path(place), method: :put, remote: true do %>
+                        <% if current_user.liked? place %>
+                          <i class="fas fa-arrow-alt-circle-up vote-btn upvote-btn disabled-btn" id="upvote-btn-<%= place.id %>"></i>
+                        <% else %>
+                          <i class="fas fa-arrow-alt-circle-up vote-btn upvote-btn" id="upvote-btn-<%= place.id %>"></i>
+                        <% end %>
                       <% end %>
-                    <% end %>
+                    </div>
                   </div>
                 </div>
                 
                 <div class="collapse m-1" id="collapseExample-<%= place.id %>">
-                  <div class="card card-body border-0 pl-0">
+                  <div class="card card-body border-0 pl-0 pb-0">
 
                     <% opener_array = ["What users are saying about", "The most recent reviews regarding", "Reviews for"] %>
                     
@@ -115,7 +112,7 @@
                     </div>
                     <form action="/places" class="see-more-reviews">
                       <input name="selected_place" class="place-reviews" type="hidden" value="<%= place.id %>">
-                      <button class="btn btn-primary" type="submit">Explore more reviews...</button>
+                      <button class="btn btn-primary open-reviews btn-block" type="submit">Explore more reviews...</button>
                     </form>
                   </div>
                 </div>
@@ -128,7 +125,7 @@
   </div>
   <div class="col-8 p-0">
     
-    <div class="reviews-content" id="reviews-content">
+    <div class="hide-content reviews-content" id="reviews-content">
       <!-- <%= render "review" %> -->
       <% if params[:selected_place] %>
         <%= render "show", remote: true %>

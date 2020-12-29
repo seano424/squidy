@@ -13,12 +13,12 @@ const collapseBtn = () => {
         } else {
           element.innerHTML = "See more"
         }
-    }) 
+    })
   })
 
   findOutMoreBtn.forEach(function(element) {
     element.addEventListener('click', () => {
-      console.log(element.previousElementSibling.innerHTML);
+      // console.log(element.previousElementSibling.innerHTML);
       element.previousElementSibling.classList.toggle('truncate-me');
         if (element.innerHTML === "more") {
           element.innerHTML = "less"
@@ -30,23 +30,17 @@ const collapseBtn = () => {
     })
   })
 
-  seeReviews.forEach((review) => {
-    review.addEventListener('submit', (event) => {
-      // event.preventDefault();
-      console.log(event.target[0].value[0]);
-      // const allReviews = placeInput.value;
-      // console.log(allReviews)
-      // allReviews.forEach(function(event) {
-      //   console.log(event);
-      // })
-    })
-  })
-  
-  // findOutMoreBtn.addEventListener('click', () => {
-  //   console.log(truncatedInfo.textContent);
-  //   truncatedInfo.classList.toggle('truncate-me');
+  // seeReviews.forEach((review) => {
+  //   review.addEventListener('submit', (event) => {
+  //     event.preventDefault();
+  //     console.log(event.target[0].value[0]);
+  //     const allReviews = placeInput.value;
+  //     console.log(allReviews)
+  //     allReviews.forEach(function(event) {
+  //       console.log(event);
+  //     })
+  //   })
   // })
-
 }
 
 export { collapseBtn }
