@@ -28,7 +28,8 @@
                 <div class="d-flex">
                   <a class="btn btn-primary w-50 mb-1 collapse-text" data-toggle="collapse" href="#collapseExample-<%= place.id %>" role="button" aria-expanded="false" aria-controls="collapseExample-<%= place.id %>">See more</a>
                   <div class="icons" style="display: flex; position: relative; top: 8px; left: 50px;">
-                    
+                    <%# check if user is signed in and display voting buttons according to their previous votes %>
+                    <% if user_signed_in? %>
                       <%= link_to unlike_place_path(place), method: :put, remote: true do %>
                         <% if current_user.disliked? place %>
                           <i class="fas fa-arrow-alt-circle-down vote-btn downvote-btn disabled-btn" id="downvote-btn-<%= place.id %>"></i>
@@ -49,6 +50,21 @@
                         <% end %>
                       <% end %>
                     </div>
+                    <%# display when user is not signed in %>
+                    <% else %>
+                      <%= link_to unlike_place_path(place), method: :put, remote: true do %>
+                        <i class="fas fa-arrow-alt-circle-down vote-btn downvote-btn" id="downvote-btn-<%= place.id %>"></i>
+                      <% end %>
+                    
+                    <div class="counter" style="min-width: 33px;">
+                      <p id="vote-total-<%= place.id %>" class="text-center vote-total" style="position: relative; top: 1px"><%= place.weighted_score %></p>
+                    </div>
+                    <div class="">
+                      <%= link_to like_place_path(place), method: :put, remote: true do %>
+                        <i class="fas fa-arrow-alt-circle-up vote-btn upvote-btn" id="upvote-btn-<%= place.id %>"></i>
+                      <% end %>
+                    </div>
+                    <% end %>
                   </div>
                 </div>
                 
