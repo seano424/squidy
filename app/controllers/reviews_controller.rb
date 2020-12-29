@@ -11,9 +11,10 @@ class ReviewsController < ApplicationController
   def create
     @review = Review.new(review_params)
     @review.place = Place.find(params[:place_id])
+    @selected_place = @review.place
     @review.user = current_user
     if @review.save
-      redirect_to place_path(@review.place)
+      redirect_back :fallback_location
     else
       render :new
     end
