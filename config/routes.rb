@@ -7,6 +7,7 @@ Rails.application.routes.draw do
       put "unlike" => "places#downvote"
       put "removeupvote" => "places#removeupvote"
       put "removedownvote" => "places#removedownvote"
+      put "selectplace" => "places#selectplace"
     end
     resources :reviews, only: [ :index, :new, :create ]
   end

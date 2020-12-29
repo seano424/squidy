@@ -14,7 +14,8 @@ class ReviewsController < ApplicationController
     @selected_place = @review.place
     @review.user = current_user
     if @review.save
-      redirect_back :fallback_location
+      # redirect_back(fallback_location: root_path, anchor: "review-#{@review.id}")
+      redirect_to back_with_anchor(anchor: @review.id)
     else
       render :new
     end
@@ -22,5 +23,9 @@ class ReviewsController < ApplicationController
 
   def review_params
     params.require(:review).permit(:content)
+  end
+
+  def back_with_anchor(anchor: '')
+    "#{request.referrer}#review-#{anchor}"
   end
 end

@@ -1,5 +1,6 @@
 class PlacesController < ApplicationController
   skip_before_action :verify_authenticity_token
+  skip_before_action :authenticate_user!, only: :index
 
   def index
     @places = Place.order(cached_votes_score: :desc)
@@ -13,16 +14,13 @@ class PlacesController < ApplicationController
         image_url: helpers.asset_url('location.png')
       }
     end
-    if params[:selected_place]
-      @place = Place.find(params[:selected_place])
-    end
+    # @place = selectplace
+    # raise
   end
 
   def show
-    if params[:selected_place]
-      @place = Place.find(params[:selected_place])
-      @review = Review.new
-    end
+    @place = Place.find(params[:id])
+    @review = Review.new
   end
 
   def create
@@ -52,7 +50,12 @@ class PlacesController < ApplicationController
     end
   end
 
-
+  def selectplace
+    @place = Place.find(params[:id])
+    respond_to do |format|
+      format.js # { render :action => "selectplace" }
+    end
+  end
 
   def place_params
     params.require(:place).permit(:name, :address, :latitude, :longitude, :city)
