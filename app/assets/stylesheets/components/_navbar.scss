@@ -10,3 +10,20 @@
 .navbar-lewagon .navbar-brand img {
   width: 40px;
 }
+
+.squidbob {
+  animation: bob 5s ease-in-out infinite alternate;
+  position: relative;
+  left: 20px;
+  top: -5px;
+}
+
+@keyframes bob {
+  from {
+    transform: translateX(12%) translateY(-5%) rotate(5deg);
+  }
+
+  to {
+    transform: translateX(18%) translateY(5%) rotate(-5deg);
+  }
+}
