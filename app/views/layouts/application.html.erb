@@ -15,10 +15,13 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
   </head>
 
-  <body>
+  <% if current_page?(root_path) %>
+  <body class="map-page">
+    <% else %>
+  <body class="registration-page">      
+  <% end %>
     <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
-
     <%= yield %>
   </body>
 </html>

@@ -2,16 +2,18 @@ const collapseBtn = () => {
   const truncatedInfo = document.querySelector('.truncate-me');
   const seeReviews = document.querySelectorAll('.see-more-reviews');
   const placeInput = document.querySelectorAll('.place-reviews')
-  const collapseBtn = document.querySelector('.collapse-text');
+  const collapseBtn = document.querySelectorAll('.collapse-text');
   const findOutMoreBtn = document.querySelectorAll('.find-out-more');
 
-  collapseBtn.addEventListener('click', () => {
-    // console.log(collapseBtn.innerHTML);
-    if (collapseBtn.innerHTML === "See more") {
-      collapseBtn.innerHTML = "See less"
-    } else {
-      collapseBtn.innerHTML = "See more"
-    }
+  collapseBtn.forEach(function(element) {
+    element.addEventListener('click', () => {
+      console.log(element.innerHTML);
+        if (element.innerHTML === "See more") {
+          element.innerHTML = "See less"
+        } else {
+          element.innerHTML = "See more"
+        }
+    })
   })
 
   findOutMoreBtn.forEach(function(element) {
