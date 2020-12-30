@@ -1,17 +1,23 @@
-.background-art-1 {
-  width: 57vw;
-  position: relative;
-  top: -15rem;
-  z-index: -1;
-  right: 4rem;
+// .background-art-1,
+// .background-art-2 {
+//   width: 600px;
+//   height: 700px;
+// }
+
+.background-1,
+.background-2 {
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
-.background-art-2 {
-  width: 52vw;
-  position: relative;
-  top: -15rem;
-  z-index: -1;
-  right: 0rem;
+.background-1 {
+  background-image: url(cafe-1.jpg);
+}
+
+.background-2 {
+  background-image: url(cafe-2.jpg);
+  // height: 100vh;
 }
 
 .font-normal {
