@@ -1,8 +1,9 @@
 const backMap = () => {
-  const backBtn = document.querySelector('.back-map');
+  const backBtn = document.getElementById('back-btn');
   if (backBtn) {
     backBtn.addEventListener('click', () => {
-      console.log('hello');
+      console.log("😲");
+      document.getElementById("reviews-content").classList.add("hide-content");
     })
   }
 }
