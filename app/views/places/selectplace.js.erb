@@ -1,3 +1,3 @@
 document.getElementById("reviews-content").classList.remove("hide-content");
-document.getElementById("reviews-content").innerHTML = "";
-document.getElementById("reviews-content").insertAdjacentHTML("beforeend", "<%= j render(@place) %>");
+document.getElementById("place-reviews").innerHTML = "";
+document.getElementById("place-reviews").insertAdjacentHTML("beforeend", "<%= j render(@place) %>");

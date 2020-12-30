@@ -1,6 +1,8 @@
 <h2>Write a review:</h2>
 <%= simple_form_for([place, Review.new], remote: true, html: { id: :new_review }) do |f| %>
   <%= f.input :content, hint: '15 characters minimum' %>
+  <%= f.input :wifi %>
+  <%= f.input :charging_ports %>
+  <%= f.input :food %>
   <%= f.submit "Submit review", class: "btn btn-primary" %>
 <% end %>
-

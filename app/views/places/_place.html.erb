@@ -1,8 +1,8 @@
 <div class="container my-5 px-5">
-  <div class="d-flex back-map">
+  <%# <div class="d-flex back-map">
     <i class="far fa-hand-point-left"></i>
     <p class="pl-2">Back to map</p>
-  </div>
+  </div> %>
   <div class="d-flex pb-4">
     <h1><%= pluralize place.reviews.size, "review" %> for </h1>
     <h1 class="review-header pl-4"> <%= place.name %></h1>
@@ -33,6 +33,10 @@
     <h2>Write a review:</h2>
     <%= simple_form_for([place, Review.new], remote: true, html: { id: :new_review }) do |f| %>
       <%= f.input :content, hint: '15 characters minimum' %>
+      <p>This place has:</p>
+      <%= f.input :wifi, as: :radio_buttons, wrapper: :vertical_collection_inline %>
+      <%= f.input :charging_ports, as: :radio_buttons, wrapper: :vertical_collection_inline %>
+      <%= f.input :food, as: :radio_buttons, wrapper: :vertical_collection_inline %>
       <%= f.submit "Submit review", class: "btn btn-primary" %>
     <% end %>
   </div>
