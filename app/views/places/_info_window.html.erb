@@ -1,4 +1,4 @@
 <h2><%= place.name %></h2>
 <p><%= place.address %></p>
-
-<%= link_to 'More info', place_path(place), class: "btn btn-primary" %>
+<% id = place.id %>
+<button class="btn btn-primary more-info-btn" name="<%= place.id %>" id="<%= place.id %>">More info</button>
