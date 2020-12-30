@@ -30,15 +30,15 @@ import "bootstrap";
 import { initMapbox } from '../plugins/init_mapbox';
 import { searchMap } from '../plugins/search_mapbox';
 import { collapseBtn } from '../plugins/collapse';
+import { backMap } from '../plugins/back_map';
 // import { reviewsDisplay } from '../plugins/reviews_display';
-import { postReview } from '../plugins/new-review';
+// import { postReview } from '../plugins/new_review';
 
 document.addEventListener('turbolinks:load', () => {
-  // Call your functions here, e.g:
-  // initSelect2();
   initMapbox();
   searchMap();
   collapseBtn();
+  backMap();
   // reviewsDisplay();
-  postReview();
+  // postReview();
 });
