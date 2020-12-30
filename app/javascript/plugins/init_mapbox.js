@@ -7,7 +7,7 @@ const buildMap = (mapElement) => {
     container: "map",
     style: "mapbox://styles/seanpatrick89/ckj1xtpjy29t619o1rifj8w3c",
     center: [-87.070429, 20.629785],
-    zoom: 6, // starting zoom
+    zoom: 8, // #1 starting zoom out point -> will be set below (#2)
   });
 };
 
@@ -51,7 +51,8 @@ const addMarkersToMap = (map, markers) => {
 const fitMapToMarkers = (map, markers) => {
   const bounds = new mapboxgl.LngLatBounds();
   markers.forEach((marker) => bounds.extend([marker.lng, marker.lat]));
-  map.fitBounds(bounds, { padding: 70, maxZoom: 14 });
+  // #2 Where the map will set in the beginning after initial zoom effect
+  map.fitBounds(bounds, { padding: 70, maxZoom: 1 });
 };
 
 const initMapbox = () => {
@@ -75,6 +76,7 @@ const initMapbox = () => {
       // const address = e.result.place_name.split(",")[1] + "," + e.result.place_name.split(",")[2] + "," + e.result.place_name.split(",")[3] + "," + e.result.place_name.split(",")[4];
       const address = e.result.place_name.substring(e.result.place_name.indexOf(', ') + 2)
       const city = e.result.place_name.split(",")[2];
+      console.log(city);
       const longitude = e.result.center[0];
       const latitude = e.result.center[1];
       console.log(`longitude: ${longitude}, latitude: ${latitude}, name: ${name}, address: ${address}`);
