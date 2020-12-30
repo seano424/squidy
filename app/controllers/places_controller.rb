@@ -14,8 +14,6 @@ class PlacesController < ApplicationController
         image_url: helpers.asset_url('location.png')
       }
     end
-    # @place = selectplace
-    # raise
   end
 
   def show
