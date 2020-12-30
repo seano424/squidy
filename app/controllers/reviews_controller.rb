@@ -18,7 +18,7 @@ class ReviewsController < ApplicationController
       # respond_to do |format|
       #   format.js { render :action => "places/selectplace", :place => @place }
       # end
-      redirect_back(fallback_location: root_path, anchor: "review-#{@review.id}")
+      # redirect_back(fallback_location: root_path, anchor: "review-#{@review.id}")
       # redirect_to selectplace_place_path(@place), status: 303
     else
       # render :new
