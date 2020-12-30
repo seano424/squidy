@@ -31,6 +31,7 @@ import { initMapbox } from '../plugins/init_mapbox';
 import { searchMap } from '../plugins/search_mapbox';
 import { collapseBtn } from '../plugins/collapse';
 // import { reviewsDisplay } from '../plugins/reviews_display';
+import { postReview } from '../plugins/new-review';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
@@ -39,4 +40,5 @@ document.addEventListener('turbolinks:load', () => {
   searchMap();
   collapseBtn();
   // reviewsDisplay();
+  postReview();
 });
