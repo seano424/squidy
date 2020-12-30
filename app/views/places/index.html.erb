@@ -18,8 +18,8 @@
           <% wifi_boolean = wifi_boolean_array.count(true) > wifi_boolean_array.count(false) %>
           <% cp_boolean = cp_boolean_array.count(true) > cp_boolean_array.count(false) %>
           <% food_boolean = food_boolean_array.count(true) > food_boolean_array.count(false) %>
-          <div class="card">
-            <div class="card-body">
+          <div class="card" id="card-<%= place.id%>">
+            <div class="card-body" >
               <h5 class="card-title"><a href="#" id="link-<%= place.id%>" class="header-name"><%= place.name %></a></h5>
               <p class="card-text" style="min-height: 50px;"><%= place.address %></p>
               <div>
