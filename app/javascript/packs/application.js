@@ -31,6 +31,7 @@ import { initMapbox } from '../plugins/init_mapbox';
 import { searchMap } from '../plugins/search_mapbox';
 import { collapseBtn } from '../plugins/collapse';
 import { backMap } from '../plugins/back_map';
+import { geolocateUser } from '../plugins/geolocate';
 // import { reviewsDisplay } from '../plugins/reviews_display';
 // import { postReview } from '../plugins/new_review';
 
@@ -39,6 +40,7 @@ document.addEventListener('turbolinks:load', () => {
   searchMap();
   collapseBtn();
   backMap();
+  geolocateUser();
   // reviewsDisplay();
   // postReview();
 });
