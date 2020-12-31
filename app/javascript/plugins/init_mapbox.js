@@ -59,6 +59,19 @@ const initMapbox = () => {
   const mapElement = document.getElementById("map");
   if (mapElement) {
     const map = buildMap(mapElement);
+    // let lngLat = [-87.070429, 20.629785];
+    // let map = buildMap(mapElement, lngLat);
+    // const showPosition = (lat, long) => {
+    //   lngLat = [long, lat];
+    //   map = buildMap(mapElement, lngLat);
+    // }
+    // if ("geolocation" in navigator) {
+    //   navigator.geolocation.getCurrentPosition(position => {
+    //     showPosition(position.coords.latitude, position.coords.longitude);
+    //   });
+    // } else {
+    //   showPosition(20.629785, -87.070429)
+    // }
 
     const markers = JSON.parse(mapElement.dataset.markers);
     addMarkersToMap(map, markers);
