@@ -1,12 +1,12 @@
 import mapboxgl from "mapbox-gl";
 import MapboxGeocoder from "@mapbox/mapbox-gl-geocoder";
 
-const buildMap = (mapElement, lngLat) => {
+const buildMap = (mapElement) => {
   mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
   return new mapboxgl.Map({
     container: "map",
     style: "mapbox://styles/seanpatrick89/ckj1xtpjy29t619o1rifj8w3c",
-    center: lngLat,
+    center: [-87.070429, 20.629785],
     zoom: 8, // #1 starting zoom out point -> will be set below (#2)
   });
 };
@@ -58,19 +58,20 @@ const fitMapToMarkers = (map, markers) => {
 const initMapbox = () => {
   const mapElement = document.getElementById("map");
   if (mapElement) {
-    let lngLat = [-87.070429, 20.629785];
-    let map = buildMap(mapElement, lngLat);
-    const showPosition = (lat, long) => {
-      lngLat = [long, lat];
-      map = buildMap(mapElement, lngLat);
-    }
-    if ("geolocation" in navigator) {
-      navigator.geolocation.getCurrentPosition(position => {
-        showPosition(position.coords.latitude, position.coords.longitude);
-      });
-    } else {
-      showPosition(20.629785, -87.070429)
-    }
+    const map = buildMap(mapElement);
+    // let lngLat = [-87.070429, 20.629785];
+    // let map = buildMap(mapElement, lngLat);
+    // const showPosition = (lat, long) => {
+    //   lngLat = [long, lat];
+    //   map = buildMap(mapElement, lngLat);
+    // }
+    // if ("geolocation" in navigator) {
+    //   navigator.geolocation.getCurrentPosition(position => {
+    //     showPosition(position.coords.latitude, position.coords.longitude);
+    //   });
+    // } else {
+    //   showPosition(20.629785, -87.070429)
+    // }
 
     const markers = JSON.parse(mapElement.dataset.markers);
     addMarkersToMap(map, markers);

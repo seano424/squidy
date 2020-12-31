@@ -40,7 +40,7 @@ document.addEventListener('turbolinks:load', () => {
   searchMap();
   collapseBtn();
   backMap();
-  geolocateUser();
+  // geolocateUser();
   // reviewsDisplay();
   // postReview();
 });
