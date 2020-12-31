@@ -18,15 +18,15 @@
           <% wifi_boolean = wifi_boolean_array.count(true) > wifi_boolean_array.count(false) %>
           <% cp_boolean = cp_boolean_array.count(true) > cp_boolean_array.count(false) %>
           <% food_boolean = food_boolean_array.count(true) > food_boolean_array.count(false) %>
-          <div class="card">
-            <div class="card-body">
+          <div class="card" id="card-<%= place.id%>">
+            <div class="card-body" >
               <h5 class="card-title"><a href="#" id="link-<%= place.id%>" class="header-name"><%= place.name %></a></h5>
               <p class="card-text" style="min-height: 50px;"><%= place.address %></p>
               <div>
                 
                 
                 <div class="d-flex">
-                  <a class="btn btn-primary w-50 mb-1 collapse-text" data-toggle="collapse" href="#collapseExample-<%= place.id %>" role="button" aria-expanded="false" aria-controls="collapseExample-<%= place.id %>">See more</a>
+                  <a class="btn btn-primary w-50 mb-1 collapse-text" id="collapse-<%= place.id %>" data-toggle="collapse" href="#collapseCard-<%= place.id %>" role="button" aria-expanded="false" aria-controls="collapseCard-<%= place.id %>">See more</a>
                   <div class="icons" style="display: flex; position: relative; top: 8px; left: 50px;">
                     <%# check if user is signed in and display voting buttons according to their previous votes %>
                     <% if user_signed_in? %>
@@ -68,7 +68,7 @@
                   </div>
                 </div>
                 
-                <div class="collapse m-1" id="collapseExample-<%= place.id %>">
+                <div class="collapse m-1" id="collapseCard-<%= place.id %>">
                   <div class="card card-body border-0 pl-0 pb-0">
 
                     <% opener_array = ["What users are saying about", "The most recent reviews regarding", "Reviews for"] %>

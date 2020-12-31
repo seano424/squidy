@@ -1,4 +1,9 @@
 <h2><%= place.name %></h2>
 <p><%= place.address %></p>
+<% id = place.id %>
 
-<%= link_to 'More info', place_path(place), class: "btn btn-primary" %>
+<!-- <%= link_to "hello", "#card-#{place.id}", remote: true %> -->
+<!-- <%= link_to "click here" , {:action => "index", :controller => "places", :anchor => "#card-#{place.id}" }, remote: true %> -->
+<!-- <%= link_to "Comment wall", root_path( :anchor => "wall") %> -->
+<a href="#card-<%= place.id %>" onclick="return false;" class="btn btn-primary more-info-btn" name="<%= place.id %>" id="<%= place.id %>">More info</a>
+<!-- <button class="btn btn-primary more-info-btn" name="<%= place.id %>" id="<%= place.id %>">More info</button> -->
