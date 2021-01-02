@@ -33,7 +33,7 @@ import { collapseBtn } from '../plugins/collapse';
 import { backMap } from '../plugins/back_map';
 import { moreInfo } from '../plugins/more_info';
 import { geolocateUser } from '../plugins/geolocate';
-// import { reviewsDisplay } from '../plugins/reviews_display';
+import { reviewsDisplay } from '../plugins/reviews_display';
 // import { postReview } from '../plugins/new_review';
 
 document.addEventListener('turbolinks:load', () => {
@@ -43,6 +43,6 @@ document.addEventListener('turbolinks:load', () => {
   backMap();
   moreInfo();
   // geolocateUser();
-  // reviewsDisplay();
+  reviewsDisplay();
   // postReview();
 });
