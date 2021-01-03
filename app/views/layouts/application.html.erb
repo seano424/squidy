@@ -15,9 +15,9 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
   </head>
 
-  <% if current_page?(root_path) %>
-  <body class="map-page">
-    <% else %>
+  <% if current_page?(root_path) || current_page?(places_path) %>
+    <body class="map-page">
+  <% else %>
     <body class="registration-page">      
     <% end %>
     <%= render 'shared/navbar' %>
