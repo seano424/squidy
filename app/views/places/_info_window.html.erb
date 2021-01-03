@@ -3,7 +3,8 @@
 <% id = place.id %>
 
 <!-- <%= link_to "hello", "#card-#{place.id}", remote: true %> -->
-<!-- <%= link_to "click here" , {:action => "index", :controller => "places", :anchor => "#card-#{place.id}" }, remote: true %> -->
-<!-- <%= link_to "Comment wall", root_path( :anchor => "wall") %> -->
-<a href="#card-<%= place.id %>" onclick="return false;" class="btn btn-primary more-info-btn" name="<%= place.id %>" id="<%= place.id %>">More info</a>
-<!-- <button class="btn btn-primary more-info-btn" name="<%= place.id %>" id="<%= place.id %>">More info</button> -->
+<!-- <%= link_to "click here", {:action => "index", :controller => "places", :anchor => "#card-#{place.id}" }, remote: true %> -->
+
+<%= link_to "More info", root_path(anchor: "card-#{place.id}"), name: "#{place.id}", id: "more-info-id", class: "btn btn-primary more-info-btn", remote: true %>
+<!-- <button class="btn btn-primary more-info-btn" name="<%= place.id %>" id="more-info-id">More info</button> -->
+<!-- <a href="#card-<%= place.id %>" class="btn btn-primary more-info-btn" name="<%= place.id %>" id="<%= place.id %>">More info</a> -->
