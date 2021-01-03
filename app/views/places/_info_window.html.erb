@@ -5,6 +5,6 @@
 <!-- <%= link_to "hello", "#card-#{place.id}", remote: true %> -->
 <!-- <%= link_to "click here", {:action => "index", :controller => "places", :anchor => "#card-#{place.id}" }, remote: true %> -->
 
-<%= link_to "More info", root_path(anchor: "card-#{place.id}"), name: "#{place.id}", id: "more-info-id", class: "btn btn-primary more-info-btn", remote: true %>
+<%= link_to "More info", root_path(:anchor => "card-#{place.id}"), name: "#{place.id}", id: "more-info-id", class: "btn btn-primary more-info-btn", :remote => true %>
 <!-- <button class="btn btn-primary more-info-btn" name="<%= place.id %>" id="more-info-id">More info</button> -->
 <!-- <a href="#card-<%= place.id %>" class="btn btn-primary more-info-btn" name="<%= place.id %>" id="<%= place.id %>">More info</a> -->
