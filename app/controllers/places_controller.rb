@@ -1,6 +1,7 @@
 class PlacesController < ApplicationController
   skip_before_action :verify_authenticity_token
   skip_before_action :authenticate_user!, only: :index
+  # after_action :upvote, only: :create
 
   def index
     @places = Place.order(cached_votes_score: :desc)
@@ -25,13 +26,18 @@ class PlacesController < ApplicationController
     @place = Place.new(place_params)
     if @place.save
       redirect_to places_path
+      upvote({place: @place})
     else
       flash[:alert] = "Something went wrong 😔"
     end
   end
 
-  def upvote
-    @place = Place.find(params[:id])
+  def upvote(attributes = {})
+    if params[:id]
+      @place = Place.find(params[:id])
+    else
+      @place = Place.find(@place.id)
+    end
     @place.liked_by current_user
     respond_to do |format|
       format.js { render :action => "vote" }

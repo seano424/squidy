@@ -99,7 +99,7 @@ const initMapbox = () => {
       const info = 
         `<h2>${name}</h2>
         <p>${address}</p>
-        <form action="/places" method="POST">
+        <form action="/places" method="POST" data-remote="true">
           <input type="hidden" id="place_name" name="place[name]" value="${name}">
           <input type="hidden" id="place_address" name="place[address]" value="${address}">
           <input type="hidden" id="place_city" name="place[city]" value="${city}">
