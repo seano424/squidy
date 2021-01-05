@@ -28,8 +28,13 @@ class PlacesController < ApplicationController
     city = results.first.city
     @place.city = city
     if @place.save
-      redirect_to places_path
-      upvote({place: @place})
+      @place.liked_by current_user
+      @places = Place.all
+      # redirect_to root_path
+      # upvote({place: @place})
+      respond_to do |format|
+        format.js
+      end
     else
       flash[:alert] = "Something went wrong 😔"
     end
@@ -51,7 +56,6 @@ class PlacesController < ApplicationController
   def downvote
     @place = Place.find(params[:id])
     @place.disliked_by current_user
-    # redirect_to places_path(anchor: "link-#{@place.id}")
     respond_to do |format|
       format.js { render :action => "vote" }
     end
@@ -60,7 +64,7 @@ class PlacesController < ApplicationController
   def selectplace
     @place = Place.find(params[:id])
     respond_to do |format|
-      format.js # { render :action => "selectplace" }
+      format.js
     end
   end
 
