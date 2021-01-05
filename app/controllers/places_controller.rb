@@ -4,7 +4,7 @@ class PlacesController < ApplicationController
   # after_action :upvote, only: :create
 
   def index
-    @places = Place.order(cached_votes_score: :desc)
+    @places = Place.near("Playa del Carmen", 25).order(cached_votes_score: :desc)
     # adding this comment to commit and push again
     @markers = @places.geocoded.map do |place|
       {
@@ -17,13 +17,16 @@ class PlacesController < ApplicationController
     end
   end
 
-  def show
-    @place = Place.find(params[:id])
-    @review = Review.new
-  end
+  # def show
+  #   @place = Place.find(params[:id])
+  #   @review = Review.new
+  # end
 
   def create
     @place = Place.new(place_params)
+    results = Geocoder.search([@place.latitude, @place.longitude]);
+    city = results.first.city
+    @place.city = city
     if @place.save
       redirect_to places_path
       upvote({place: @place})

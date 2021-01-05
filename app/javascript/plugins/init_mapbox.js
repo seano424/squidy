@@ -52,7 +52,7 @@ const fitMapToMarkers = (map, markers) => {
   const bounds = new mapboxgl.LngLatBounds();
   markers.forEach((marker) => bounds.extend([marker.lng, marker.lat]));
   // #2 Where the map will set in the beginning after initial zoom effect
-  map.fitBounds(bounds, { padding: 70, maxZoom: 1 });
+  map.fitBounds(bounds, { padding: 70, maxZoom: 14 });
 };
 
 const initMapbox = () => {
@@ -85,17 +85,19 @@ const initMapbox = () => {
     map.addControl(geocoder);
 
     geocoder.on('result', function(e) {
+      console.log(e.result.properties.category);
       const name = e.result.place_name.split(",")[0];
+      // console.log(`name: ${name}`);
       // const address = e.result.place_name.split(",")[1] + "," + e.result.place_name.split(",")[2] + "," + e.result.place_name.split(",")[3] + "," + e.result.place_name.split(",")[4];
       const address = e.result.place_name.substring(e.result.place_name.indexOf(', ') + 2)
       const city = e.result.place_name.split(",")[2];
-      console.log(city);
+      // console.log(`city: ${city}`);
       const longitude = e.result.center[0];
       const latitude = e.result.center[1];
-      console.log(`longitude: ${longitude}, latitude: ${latitude}, name: ${name}, address: ${address}`);
+      // console.log(`longitude: ${longitude}, latitude: ${latitude}, name: ${name}, address: ${address}`);
       const state_and_zipcode = e.result.place_name.split(",")[3];
       const country = e.result.place_name.split(",")[4];
-      console.log(state_and_zipcode, country);
+      // console.log(state_and_zipcode, country);
       const info = 
         `<h2>${name}</h2>
         <p>${address}</p>
