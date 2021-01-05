@@ -104,7 +104,6 @@ const initMapbox = () => {
         <form action="/places" method="POST" data-remote="true">
           <input type="hidden" id="place_name" name="place[name]" value="${name}">
           <input type="hidden" id="place_address" name="place[address]" value="${address}">
-          <input type="hidden" id="place_city" name="place[city]" value="${city}">
           <input type="hidden" id="place_latitude" name="place[latitude]" value=${e.result.center[1]}>
           <input type="hidden" id="place_longitude" name="place[longitude]" value=${e.result.center[0]}>
           <button type="submit" class="btn btn-primary">Add to list</button>
