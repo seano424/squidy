@@ -5,12 +5,14 @@ const searchMap = () => {
     mapboxCtrl.addEventListener('mouseover', () => {
       mapboxCtrl.classList.remove('mapboxgl-ctrl-geocoder--collapsed')
     })
-    mapboxCtrl.addEventListener('mouseout', () => {
-      mapboxCtrl.classList.add('mapboxgl-ctrl-geocoder--collapsed')
+    document.addEventListener('click', (e) => {
+      console.log(e.target.className === "mapboxgl-ctrl-geocoder--input");
+      if (e.target.className !== "mapboxgl-ctrl-geocoder--input") {
+          mapboxCtrl.classList.add('mapboxgl-ctrl-geocoder--collapsed')
+      }
     })
   }
 }
 
-// mapboxgl-ctrl-geocoder--collapsed
 
 export { searchMap }
