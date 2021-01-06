@@ -1,5 +1,5 @@
-<div id="content" class="row">
-  <div class="col-4 p-0" style="overflow-y: scroll; height: 100vh;">
+<div id="content" class="row d-flex flex-md-row flex-column-reverse">
+  <div class="col-12 col-md-4 p-0" style="overflow-y: scroll; height: 100vh;">
     <div class="sidebar">
       <div class="heading">
         <!-- <h1 class="text-center">Playa del Carmen</h1> -->
@@ -16,7 +16,7 @@
         <% name = name.partition(",").last.strip %>
         <% result = Geocoder.search("#{name}") %>
         <% end %>
-        <h1><%= result.last.city %></h1>
+        <h1 class="text-center"><%= result.last.city %></h1>
 
 
 
@@ -160,7 +160,7 @@
       </div>
     </div>
   </div>
-  <div class="col-8 p-0">
+  <div class="col-12 col-md-8 p-0">
     <div class="hide-content reviews-content" id="reviews-content">
       <div class="d-flex back-map hide-content w-100 align-items-center mt-3 ml-3" id="back-map">
         <%= button_tag(type: 'button', id: "back-btn") do  %>
