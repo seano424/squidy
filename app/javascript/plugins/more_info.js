@@ -16,6 +16,15 @@ const moreInfo = () => {
       const moreInfoBtn = document.querySelector(".more-info-btn");
 
       moreInfoBtn.addEventListener("click", handleClick);
+    } else if (e.target && e.target.id == "add-to-list") {
+      const addToList = document.getElementById('add-to-list');
+
+      function handleMe() {
+        addToList.textContent = "See more";
+        addToList.id = moreInfoBtn.id
+        console.log(addToList.id);
+      }
+      addToList.addEventListener('click', handleMe); 
     }
   }
 

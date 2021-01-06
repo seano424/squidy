@@ -1,10 +1,30 @@
 <div id="content" class="row">
-  <div class="col-4 p-0" style="overflow-y: scroll; height: 90vh;">
+  <div class="col-4 p-0" style="overflow-y: scroll; height: 100vh;">
     <div class="sidebar">
       <div class="heading">
-        <h1 class="text-center">Playa del Carmen</h1>
+        <!-- <h1 class="text-center">Playa del Carmen</h1> -->
       </div>
-      <div id="listings" class="listings">
+      <div id="listings" class="listings" data-name="Playa del Carmen">
+
+
+
+
+
+        <% name = 'Café Choux Choux, Avenida 20, Playa del Carmen, Quintana Roo 77720, Mexico' %>
+        <% result = Geocoder.search("#{name}") %>
+        <% if result.empty? %>
+        <% name = name.partition(",").last.strip %>
+        <% result = Geocoder.search("#{name}") %>
+        <% end %>
+        <h1><%= result.last.city %></h1>
+
+
+
+
+
+
+
+
         <% sorted_places = @places.sort_by { |h| h[:cached_votes_score] }.reverse %>
         <% sorted_places.each do |place| %>
           <!-- this is to find out what the majority of users say regarding food, wifi, and charging ports -->

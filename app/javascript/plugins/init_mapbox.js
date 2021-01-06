@@ -106,7 +106,7 @@ const initMapbox = () => {
           <input type="hidden" id="place_address" name="place[address]" value="${address}">
           <input type="hidden" id="place_latitude" name="place[latitude]" value=${e.result.center[1]}>
           <input type="hidden" id="place_longitude" name="place[longitude]" value=${e.result.center[0]}>
-          <button type="submit" class="btn btn-primary">Add to list</button>
+          <button type="submit" id="add-to-list" class="btn btn-primary">Add to list</button>
         </form>`;
       const popupSearch = new mapboxgl.Popup().setHTML(info);
       new mapboxgl.Marker(e)
