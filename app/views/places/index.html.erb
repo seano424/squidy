@@ -1,8 +1,26 @@
-<div id="content" class="row">
-  <div class="col-4 p-0" style="overflow-y: scroll; height: 90vh;">
-    <%= render "places" %>
+<div id="content" class="row d-flex flex-md-row flex-column-reverse">
+  <div class="col-12 col-md-4 p-0" style="overflow-y: scroll; height: 100vh;">
+    <div class="sidebar">
+      <div class="heading">
+        <!-- <h1 class="text-center">Playa del Carmen</h1> -->
+      </div>
+      <div id="listings" class="listings" data-name="Playa del Carmen">
+
+
+        <!-- <% name = 'Café Choux Choux, Avenida 20, Playa del Carmen, Quintana Roo 77720, Mexico' %>
+        <% result = Geocoder.search("#{name}") %>
+        <% if result.empty? %>
+        <% name = name.partition(",").last.strip %>
+        <% result = Geocoder.search("#{name}") %>
+        <% end %> -->
+        <h1 class="text-center">Playa del Carmen</h1>
+
+
+        <%= render "places" %>
+      </div>
+    </div>
   </div>
-  <div class="col-8 p-0">
+  <div class="col-12 col-8 p-0">
     <div class="hide-content reviews-content" id="reviews-content">
       <div class="d-flex back-map hide-content w-100 align-items-center mt-3 ml-3" id="back-map">
         <%= button_tag(type: 'button', id: "back-btn") do  %>

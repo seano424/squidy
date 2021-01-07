@@ -34,6 +34,7 @@ import { backMap } from '../plugins/back_map';
 import { moreInfo } from '../plugins/more_info';
 import { geolocateUser } from '../plugins/geolocate';
 import { reviewsDisplay } from '../plugins/reviews_display';
+import { searchInput } from '../plugins/search_input';
 // import { postReview } from '../plugins/new_review';
 
 document.addEventListener('turbolinks:load', () => {
@@ -45,4 +46,5 @@ document.addEventListener('turbolinks:load', () => {
   // geolocateUser();
   reviewsDisplay();
   // postReview();
+  searchInput()
 });
